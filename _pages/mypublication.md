@@ -11,11 +11,14 @@ redirect_from:
 
 Peer reviewed journal publications
 =====
-* Ph.D in Version Control Theory, GitHub University, 2018 (expected)
-* M.S. in Jekyll, GitHub University, 2014
-* B.S. in GitHub, GitHub University, 2012
-
+. Chattopadhyay, A., Hoh, D., Kramer, D. M., Maiti, T. and Sinha, S. CMPLE: Correlation modelling to decode Photosynthesis
+using the Minorize-Maximize algorithm.  Journal of Agricultural, Biological and Environmental Statistics. \n\n
+<ol reversed>
+<li>option 1</li>
+Description
+<li>option 2</li> 
 Work experience
+</ol>
 ======
 * Spring 2024: Academic Pages Collaborator
   * Github University
