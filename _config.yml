@@ -21,7 +21,7 @@ repository               : "academicpages/academicpages.github.io"
 #               Additional customization can be done by editing /_includes/author-profile.html
 author:
   # Biographic information
-  avatar           : "profile-pic.png"
+  avatar           : "pexels-steve-1532704.jpg"
   name             : "Samiran Sinha"
   pronouns         : # example: "he/him"  
   bio              : "Lifelong learner and statistician by training"
