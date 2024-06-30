@@ -10,7 +10,7 @@ main:
     url: /portfolio/
 
   - title: "Publications"
-    url: /mypublication/
+    url: /cv/
 
   - title: "Teaching"
     url: /teaching/    
