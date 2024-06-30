@@ -1,22 +1,25 @@
 # main links links
 main:
-  - title: "Publications"
-    url: /publications/
-
+  - title: "CV"
+    url: /files/samcv.pdf
+  
   - title: "Members"
     url: /talks/    
+
+  - title: "Miscellaneous"
+    url: /portfolio/
+
+  - title: "Publications"
+    url: /publications/
 
   - title: "Teaching"
     url: /teaching/    
     
-  - title: "Miscellaneous"
-    url: /portfolio/
         
   #- title: "Blog Posts"
   #  url: /year-archive/
     
-  - title: "CV"
-    url: /files/samcv.pdf
+  
     
   #- title: "Guide"
   #  url: /markdown/
