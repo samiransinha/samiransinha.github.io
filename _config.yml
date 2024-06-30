@@ -27,7 +27,7 @@ author:
   bio              : "Statistician and lifelong learner"
   location         : "Texas, USA"
   employer         : "Texas A&M University"
-  uri              : "tamu.edu"
+  uri              : #"tamu.edu"
   email            : "sinha@tamu.edu" 
 
   # Academic websites
