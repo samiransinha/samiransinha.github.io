@@ -10,6 +10,7 @@ redirect_from:
 {% include base_path %}
 
 **Peer reviewed journal publications**
+<ol reversed> 
 <li> Chattopadhyay, A., Hoh, D., Kramer, D. M., Maiti, T. and Sinha, S. CMPLE: Correlation modelling to decode Photosynthesis
 using the Minorize-Maximize algorithm.  Journal of Agricultural, Biological and Environmental Statistics. </li>
 <li> Yi, Z., Strigari, L. E., Jin, L. and Sinha, S. Detection of astrophysical neutrinos at prospective locations of dark matter detectors. 
