@@ -195,7 +195,7 @@ Book Chapters
 =====
 <ol reversed>
 <li> Wang, T., Bandyopadhyay, D. and Sinha, S. Efficient estimation of the additive risks model for interval-censored data. To appear as a book chapter in an edited volume on interval-censored data (Editors: Jianguo Sun and Ding-Geng Chen). 
-[Article]'https://arxiv.org/abs/2203.09726', [R package](https://github.com/laozaoer/MMIntAdd)</li>
+[Article]('https://arxiv.org/abs/2203.09726'), [R package](https://github.com/laozaoer/MMIntAdd)</li>
 <li> Sinha, S. (2021). Bayesian approaches for handling covariate measurement error.
  Handbook of Measurement Error Models Edited by Grace Yi, Aurore Delaigle and Paul Gustafson (Chapman & Hall/CRC Press), eBook ISBN 9781315101279. 
 </li>
