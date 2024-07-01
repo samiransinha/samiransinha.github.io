@@ -10,4 +10,4 @@ redirect_from:
 {% include base_path %}
 
 **Undergraduate research students**
-<a href="http://samiransinha.github.io/images/students/">data and code</a>.
+<a href="http://samiransinha.github.io/images/students/Wesley_picture.jpg">Wesley Fletcher</a>.
