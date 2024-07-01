@@ -14,14 +14,14 @@ redirect_from:
 <li> Chattopadhyay, A., Hoh, D., Kramer, D. M., Maiti, T. and Sinha, S. CMPLE: Correlation modelling to decode Photosynthesis
 using the Minorize-Maximize algorithm.  Journal of Agricultural, Biological and Environmental Statistics. </li>
 <li> Yi, Z., Strigari, L. E., Jin, L. and Sinha, S. Detection of astrophysical neutrinos at prospective locations of dark matter detectors. 
-Physical Review D. [https://arxiv.org/abs/2307.13792]. </li>
-<li> Huang, W., Page, R. L., Morris, T., Ayres, S., Ferdinand, A. O. and Sinha, S. Maternal exposure to SSRIs or SNRIs and the risk of congenital abnormalities in offspring: A systematic review and meta-analysis. PLoS ONE. [https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0294996]. 
-Related data and code \[[codes/PLOS-meta-code.zip data and code]\]
+Physical Review D. <a href="https://arxiv.org/abs/2307.13792">Article</a>.
+</li>
+<li> Huang, W., Page, R. L., Morris, T., Ayres, S., Ferdinand, A. O. and Sinha, S. Maternal exposure to SSRIs or SNRIs and the risk of congenital abnormalities in offspring: A systematic review and meta-analysis. PLoS ONE. <a href="https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0294996">Article</a>. Here you may find the related <a href="http://samiransinha.github.io/files/codes/PLOS-meta-code.zip">data and code</a>.
 </li>
 <li> Nault, R., Saha, S., Bhattacharya, S., Sinha, S., Maiti, T., and Zacharewski, T. Single cell transcriptomics shows dose-dependent disruption of hepatic zonation by TCDD in mice. Toxicological Sciences.
-[https://www.biorxiv.org/content/10.1101/2022.06.15.496321v1.full]
+<a href="https://www.biorxiv.org/content/10.1101/2022.06.15.496321v1.full">Article</a>. 
  </li> 
-<li> Rivera-Velez, A., Huber, L., Sinha, S. and Cohen, N. D. (2022). Fitness cost conferred by the novel erm(51) and rpoB mutation on environmental multidrug resistant-Rhodococcus equi. Veterinary Microbiology. [https://www.sciencedirect.com/science/article/pii/S0378113522002012], supplementary material \[[research/Noah_supplementary.pdf pdf]\] </li>
+<li> Rivera-Velez, A., Huber, L., Sinha, S. and Cohen, N. D. (2022). Fitness cost conferred by the novel erm(51) and rpoB mutation on environmental multidrug resistant-Rhodococcus equi. Veterinary Microbiology. <a href="https://www.sciencedirect.com/science/article/pii/S0378113522002012">Article</a>, <a href="http://samiransinha.github.io/files/research/Noah_supplementary.pdf">Supplementary material</a> </li>
 <li> Wang, T., He, K., Ma, W., Bandyopadhyay, D. and Sinha, S. Minorize-maximize algorithm for the generalized odds rate model for clustered current status data. Canadian Journal of Statistics.
  [http://doi.org/10.1002/cjs.11733] Supplementary material \[[research/Tong2022_supplementary.pdf pdf]\], The R package MMGOR 
 is available at [https://github.com/laozaoer/MMGOR]. Package \[[codes/MMGOR_Manual.pdf manual]\]</li>  
