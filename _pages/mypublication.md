@@ -153,13 +153,13 @@ studies with missing covariates.  Journal of Nonparametric Statistics.
 <li> Sinha, S., Gruber, S. B., Mukherjee, B., and  Rennert, G. (2008). Inference of
 haplotype effects in matched case-control studies using unphased genotype 
 data.  International Journal of Biostatistics, 4, Issue 1, Article 6. 
-\[[research/sinha_ijb2008.pdf pdf]\]
-Here is the code:  \[[research/Readme.txt Readme.txt]\],    
-\[[research/Hap.R R-code]\], \[[research/new-hapdataanalysissub1.f Fortran subroutines]\]
+<!--\[[research/sinha_ijb2008.pdf pdf]\]-->
+Here is the code <a href="http://samiransinha.github.io/files/codes/Readme.txt">Readme</a>,    
+<a href="http://samiransinha.github.io/files/codes/Hap.R">R script</a>, <a href="http://samiransinha.github.io/files/codes/new-hapdataanalysissub1.f">Fortran subroutines</a>.
 </li>
 <li> Sinha, S., Mukherjee, B., and Ghosh, M.
 (2007),  Modelling Association Among Bivariate Exposures In
-Matched Case-Control Studies. Sankhya, 69, 379–404. \[[research/sankhya.pdf pdf]\]
+Matched Case-Control Studies. Sankhya, 69, 379–404. <!--\[[research/sankhya.pdf pdf]\]-->
 </li>
 <li> Sinha, S. and Maiti, T. (2007). Analysis of matched
 case-control data in presence of nonignorable missing data. 
@@ -177,7 +177,7 @@ and population stratification. Biometrics. <!--\[[research/mukherjee2007-biometr
 <li> Sinha, S., and Mukherjee, B. (2006). A score test for
 determining sample size in matched case-control studies with
 categorical exposure.  Biometrical Journal, 48, 35--53. <!--\[[research/sinha_biomj2006.pdf pdf]\]-->
-Here is the <a href="http://samiransinha.github.io/files/codes/rcode1.R">code</a> 
+Here is the <a href="http://samiransinha.github.io/files/codes/rcode1.R">code</a>. 
 </li>
 <li> Sinha, S., Mukherjee, B., Ghosh, M., Mallick, B. K., Carroll, R. J.  (2005). Semiparametric Bayesian 
 analysis of matched case-control studies with missing exposure. 
