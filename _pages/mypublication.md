@@ -29,21 +29,21 @@ Physical Review D. <a href="https://arxiv.org/abs/2307.13792">Article</a>.
 <li> Manuel, C., Sinha, S. and Wang, S. Reduction of bias due to misclassified exposures using instrumental variables. Canadian Journal of Statistics. <a href="http://samiransinha.github.io/files/research/Chris_supplementary.pdf">Supplementary materials</a>
 <a href="http://samiransinha.github.io/files/codes/Chris_2021_2022_CJS_mcmc_code_4_m1nm2_4_webpage.R">R script</a> for methods M1 and M2. The code for the proposed method, M3 using the variational inference is <a href="http://samiransinha.github.io/files/codes/bayesmcmc4m3_1.0.tar.gz">R package</a> and its <a href="http://samiransinha.github.io/files/codes/bayesmcmc4m3-manual.pdf">manual</a>.
 </li>
-<li> Hu, L., Mandal, S. and Sinha, S. A comparative study of two-sample tests for interval-censored data. Journal of Statistical Computation and Simulation. [https://www.tandfonline.com/doi/full/10.1080/00949655.2021.1955884] 
+<li> Hu, L., Mandal, S. and Sinha, S. A comparative study of two-sample tests for interval-censored data. Journal of Statistical Computation and Simulation. <a href="https://www.tandfonline.com/doi/full/10.1080/00949655.2021.1955884">Article</a> 
 </li>
-<li> Karmakar, M., Lai, P-C., Sinha, S., Glaser, S. and Chakraborty, S. Identification of miR-203a, mir-10a, and miR-194 as predictors for risk of lymphovascular invasion in head and neck cancers. [https://doi.org/10.18632/oncotarget.28022]
+<li> Karmakar, M., Lai, P-C., Sinha, S., Glaser, S. and Chakraborty, S. Identification of miR-203a, mir-10a, and miR-194 as predictors for risk of lymphovascular invasion in head and neck cancers. <a href="https://doi.org/10.18632/oncotarget.28022">Article</a>
 </li>
-<li> Dutta, B., Lang, R.F., Liao, S., Sinha, S., Strigari, L. and Thompson, A. A global analysis strategy to resolve neutrino NSI degeneracies with scattering and oscillation data. To appear in The Jouranl of High Energy Physics. [https://arxiv.org/abs/2002.03066]
+<li> Dutta, B., Lang, R.F., Liao, S., Sinha, S., Strigari, L. and Thompson, A. A global analysis strategy to resolve neutrino NSI degeneracies with scattering and oscillation data. Jouranl of High Energy Physics. <a href="https://arxiv.org/abs/2002.03066">Article</a>
 </li>
-<li> Singh, S., Venkatasamy, L., White, T., Sinha, S., Glaser, S., Safe, SS., and Chakraborty, S. CXCL11/CXCR3 mediates tumor lymphatic crosstalk and inflammation induced tumor promoting mechanisms in head and neck cancers. Accepted to the American Journal of Pathology. [https://www.ncbi.nlm.nih.gov/pubmed/32035061]
+<li> Singh, S., Venkatasamy, L., White, T., Sinha, S., Glaser, S., Safe, SS., and Chakraborty, S. CXCL11/CXCR3 mediates tumor lymphatic crosstalk and inflammation induced tumor promoting mechanisms in head and neck cancers. American Journal of Pathology. <a href="https://www.ncbi.nlm.nih.gov/pubmed/32035061">Article</a>
 </li> 
-<li> Lee, D.,  Lahiri, S. N. and Sinha, S. A  test of homogeneity of distributions when observations are  subject to  measurement errors. Accepted to Biometrics. \[[research/paper_August_2019.pdf pdf]\],\[[research/supple-August-2019.pdf Supplementary Materials]\]</li> 
-For this project an R package, named MEtest, has been created and is available from CRAN [https://cran.r-project.org/web/packages/MEtest/index.html] </li>
-This \[[codes/MEtest_examples2019.html html file]\] contains illustrative examples on how to use the package for different scenarios. 
+<li> Lee, D.,  Lahiri, S. N. and Sinha, S. A  test of homogeneity of distributions when observations are  subject to  measurement errors. Biometrics. <a href="http://samiransinha.github.io/files/research/paper_August_2019.pdf">Article</a>, 
+  <a href="http://samiransinha.github.io/files/research/supple-August-2019.pdf">Supplementary materials</a></li>, R package <a href="https://cran.r-project.org/web/packages/MEtest/index.html">MEtest</a>, 
+This <a href="http://samiransinha.github.io/files/codes/MEtest_examples2019.html">file</a> contains illustrative examples on how to use the package for different scenarios. 
 </li>
-<li> Dutta, B., Liao, S., Sinha, S. and Strigari, LE. Searching for Beyond the Standard Model Physics with COHERENT energy and timing data. Physical Review Letters. \[[research/timing.pdf pdf]\]
+<li> Dutta, B., Liao, S., Sinha, S. and Strigari, LE. Searching for Beyond the Standard Model Physics with COHERENT energy and timing data. Physical Review Letters. <a href="https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.123.061801">Article</a>
 </li>
-<li> Manuel, C. M., Sinha, S. and Wang, S. Matched case-control data with a misclassified exposure: What can be done with instrumental variables? Biostatistics. \[[research/kxz012.pdf pdf]\], \[[research/chris2019_supplementary.pdf Supplementary Materials]\]</li> 
+<li> Manuel, C. M., Sinha, S. and Wang, S. Matched case-control data with a misclassified exposure: What can be done with instrumental variables? Biostatistics.  \[[research/chris2019_supplementary.pdf Supplementary Materials]\]</li> 
 Code is available at GitHub [https://github.com/ronsami/Istrumental-variables-for-misclassification] </li> 
 For this project an R package, named mccmeiv, has been created and is available from CRAN [https://CRAN.R-project.org/package=mccmeiv] 
 </li>
