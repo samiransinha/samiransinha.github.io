@@ -12,7 +12,7 @@ redirect_from:
 **Undergraduate research students**
 <div style="clear: both;">
   <div style="float: left; margin-right 1em;">
-    <img src="http://samiransinha.github.io/images/students/Wesley_picture.jpg" alt="" width="425/">
+    <img src="http://samiransinha.github.io/images/students/Wesley_picture.jpg" alt="" width="125/">
   </div>
   <div>
     <h2>Some title text</h2>
