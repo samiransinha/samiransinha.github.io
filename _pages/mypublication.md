@@ -164,8 +164,7 @@ Matched Case-Control Studies. Sankhya, 69, 379–404. \[[research/sankhya.pdf pd
 <li> Sinha, S. and Maiti, T. (2007). Analysis of matched
 case-control data in presence of nonignorable missing data. 
 Biometrics. <!--\[[research/sinha2007-biometrics.pdf pdf]\]-->
-Here is the code \[[research/dataanalysis-3.txt R-script]\], 
-\[[research/data_simusub.f Fortran subroutines]\]
+Here is the code <a href="http://samiransinha.github.io/files/codes/dataanalysis-3.txt">R script</a> and <a href="http://samiransinha.github.io/files/codes/data_simusub.f">Fortran subroutines</a>.
 </li>
 <li> Mukherjee, B., Liu, I., and Sinha, S. (2007), Analyzing
 matched case-control  data with multiple ordered disease states, possible choices, 
