@@ -43,14 +43,14 @@ This <a href="http://samiransinha.github.io/files/codes/MEtest_examples2019.html
 </li>
 <li> Dutta, B., Liao, S., Sinha, S. and Strigari, LE. Searching for Beyond the Standard Model Physics with COHERENT energy and timing data. Physical Review Letters. <a href="https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.123.061801">Article</a>
 </li>
-<li> Manuel, C. M., Sinha, S. and Wang, S. Matched case-control data with a misclassified exposure: What can be done with instrumental variables? Biostatistics.  \[[research/chris2019_supplementary.pdf Supplementary Materials]\]</li> 
-Code is available at GitHub [https://github.com/ronsami/Istrumental-variables-for-misclassification] </li> 
-For this project an R package, named mccmeiv, has been created and is available from CRAN [https://CRAN.R-project.org/package=mccmeiv] 
+<li> Manuel, C. M., Sinha, S. and Wang, S. Matched case-control data with a misclassified exposure: What can be done with instrumental variables? Biostatistics.  <a href="http://samiransinha.github.io/files/research/chris2019_supplementary.pdf">Supplementary materials</a> 
+<a href="https://github.com/ronsami/Istrumental-variables-for-misclassification">Code at Github</a>, <a href="https://CRAN.R-project.org/package=mccmeiv">R package mccmeiv from CRAN</a> 
 </li>
-<li> Lee, D. and Sinha, S. Identifiability and bias reduction in the skewprobit model for a binary response. Journal of Statistical Computation and Simulation. \[[research/Identifiability_and_bias_reduction_published.pdf pdf]\], \[[research/0714_supple.pdf Supplementary materials]\]</li> 
-For this project an R package, named SPreg, has been created and is available from CRAN [https://cran.r-project.org/package=SPreg] 
+<li> Lee, D. and Sinha, S. Identifiability and bias reduction in the skewprobit model for a binary response. Journal of Statistical Computation and Simulation. <!--\[[research/Identifiability_and_bias_reduction_published.pdf pdf]\],-->
+<a href="http://samiransinha.github.io/files/research/0714_supple.pdf">Supplementary materials</a>,  <a href="https://cran.r-project.org/package=SPreg"> R package SPreg from CRAN</a> 
 </li>
-<li> Wei, Y., Ma, Y., Garcia, T. P., and Sinha, S. Consistent estimator for logistic mixed effect models. Canadian Journal of Statistics. \[[research/randomslopefinalcjsversion.pdf pdf]\], \[[research/randomslopesuppfinalcjsversion.pdf Supplementary materials]\] 
+<li> Wei, Y., Ma, Y., Garcia, T. P., and Sinha, S. Consistent estimator for logistic mixed effect models. Canadian Journal of Statistics. <a href="http://samiransinha.github.io/files/research/randomslopefinalcjsversion.pdf"> Article</a>,
+  <a href="http://samiransinha.github.io/files/research/randomslopesuppfinalcjsversion.pdf"> Supplementary materials</a> 
 </li>
 <li> Mandal, S., Wang, S., and Sinha, S. Analysis of linear transformation models with covariate measurement error and interval censoring. Statistics in Medicine. \[[research/SIM_2019-May-10.pdf pdf]\], \[[research/suppl_2019-May-07.pdf Supplementary Materials]\]</li>
 For this project an R package, named icemelt, has been created and is available from CRAN [https://cran.r-project.org/web/packages/icemelt/index.html] </li>
