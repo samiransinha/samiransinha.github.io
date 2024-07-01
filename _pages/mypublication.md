@@ -163,22 +163,22 @@ Matched Case-Control Studies. Sankhya, 69, 379–404. \[[research/sankhya.pdf pd
 </li>
 <li> Sinha, S. and Maiti, T. (2007). Analysis of matched
 case-control data in presence of nonignorable missing data. 
-Biometrics. \[[research/sinha2007-biometrics.pdf pdf]\]
+Biometrics. <!--\[[research/sinha2007-biometrics.pdf pdf]\]-->
 Here is the code \[[research/dataanalysis-3.txt R-script]\], 
 \[[research/data_simusub.f Fortran subroutines]\]
 </li>
 <li> Mukherjee, B., Liu, I., and Sinha, S. (2007), Analyzing
 matched case-control  data with multiple ordered disease states, possible choices, 
-and comparisons.   Statistics in Medicine. \[[research/Mukherjee2007-StatinMed.pdf  pdf]\]
+and comparisons.   Statistics in Medicine. <!--\[[research/Mukherjee2007-StatinMed.pdf  pdf]\]-->
 </li>
 <li> Mukherjee, B., Zhang, L.,  Ghosh, M., and Sinha, S. (2007). 
  Semiparameteric  Bayesian analysis of  case-control data under gene-environment independence
-and population stratification. Biometrics. \[[research/mukherjee2007-biometrics.pdf  pdf]\]
+and population stratification. Biometrics. <!--\[[research/mukherjee2007-biometrics.pdf  pdf]\]-->
 </li>
 <li> Sinha, S., and Mukherjee, B. (2006). A score test for
 determining sample size in matched case-control studies with
-categorical exposure.  Biometrical Journal, 48, 35--53. #\[[research/sinha_biomj2006.pdf pdf]\]</li>
-Here is the  \[[codes/rcode1 R-code]\]
+categorical exposure.  Biometrical Journal, 48, 35--53. <!--\[[research/sinha_biomj2006.pdf pdf]\]-->
+Here is the <a href="http://samiransinha.github.io/files/codes/rcode1">code</a> 
 </li>
 <li> Sinha, S., Mukherjee, B., Ghosh, M., Mallick, B. K., Carroll, R. J.  (2005). Semiparametric Bayesian 
 analysis of matched case-control studies with missing exposure. 
