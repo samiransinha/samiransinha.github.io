@@ -131,7 +131,7 @@ Preventive Veterinary Medicine. \[[research/JOsterstock_PVM_2010.pdf pdf]\]
 <li> Chatterjee, N., Sinha, S., Diver, W. R., Feigelson, H. S. Analysis of cohort studies with multivariate, 
 partially observed disease classification data. Biometrika.  <!--\[[research/SurvClassificationChatterjeeRevised2-Jan06-2010.pdf pdf]\]-->
 <!--\[[research/SurvClassificationChatterjeeSuppl_Feb2010.pdf supplementary material]\] -->
-Here is the computer code <a href="http://samiransinha.github.io/files/codes/BKA2010/Readme.txt">Readme</a>, <a href="http://samiransinha.github.io/files/codes/BKA2010/ee_code_online_R">R script</a>, <a href="http://samiransinha.github.io/files/codes/BKA2010/subroutineBKA2010.f">Fortran subroutine</a>.
+Here is the computer code <a href="http://samiransinha.github.io/files/codes/BKA2010/Readme.txt">Readme</a>, <a href="http://samiransinha.github.io/files/codes/BKA2010/ee_code_online_R.txt">R script</a>, <a href="http://samiransinha.github.io/files/codes/BKA2010/subroutineBKA2010.f">Fortran subroutine</a>.
 </li>
 <li> Sinha, S., Mallick, B. K., Kipnis, V., and Carroll, R. J.  Semiparametric Bayesian 
 analysis of nutritional epidemiology data in the presence of measurement 
