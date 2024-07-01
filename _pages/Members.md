@@ -13,7 +13,7 @@ redirect_from:
 =====
 
 <img src="http://samiransinha.github.io/images/students/Wesley_picture.jpg" align="left" width="200px"/>
-some text floating around the image
+**Wesley Fletcher** is a ...
 
 
 
