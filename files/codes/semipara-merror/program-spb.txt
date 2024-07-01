@@ -1,0 +1,287 @@
+spb=function(cohort.data, calibration.data, totiter, a0, b0){
+if(totiter<100) {print("total MCMC iteration must be greater than 100"); return}else{
+library(splines)
+dyn.load("spbsubroutines.so")
+#rm(list=ls(all=TRUE))
+# Beginning of data analysis
+# In the following we initialize the parameters:
+sigma2alpha=10^8; 
+sigma2beta=10^8;
+m=nrow(calibration.data)
+n=nrow(cohort.data)
+ntot=n+m
+combdata=rbind(calibration.data, cbind(cohort.data, rep(0, n), rep(0, n)))# first m rows
+# represent the calibration data 
+nc=ncol(combdata) #number of  columns of the combined data
+# the placement of knot points
+wbar=apply(combdata[1:m, 3:4], 1, mean)
+knot.pt.a=quantile(as.numeric(wbar), prob=c(0.1, 0.3, 0.5, 0.7, 0.9))
+knot.pt.b=knot.pt.a
+bn=range(combdata[, c(2, 3, 4)])-c(5, -5) # Defining the boundary knots.
+nalph=length(knot.pt.a)+4 # for cubic B-splines
+nbet=length(knot.pt.b)+4 # for cubic B-splines
+# Initialize unobserved X values
+
+out.1=lm(wbar~combdata[1:m, 2])
+initial.x=out.1$coef[1]+out.1$coef[2]*combdata[, 2]
+dmatalpha=bs(initial.x, knots=knot.pt.a, degree=3, Boundary.knots=bn, intercept=TRUE);
+dmatbeta=bs(initial.x, knots=knot.pt.b, degree=3, Boundary.knots=bn, intercept=TRUE);
+#
+# the following penaltymat matrix is needed for #############
+# resampling delalpha and delbeta #######################################
+penaltymat=matrix(0, ncol=nalph, nrow=nalph)
+ for( j in 3: nrow(penaltymat)) 
+{
+penaltymat[j, j]=1; penaltymat[j, (j-1)]=-2; penaltymat[j, (j-2)]=1
+}
+## The following matrix is needed for conditional prior of \alpha_j and \beta_j.
+diffmat=matrix(0, nrow=nalph, ncol=nalph);
+diffmat[1, 2]=2; diffmat[1, 3]=-1;
+diffmat[2, 1]=2; diffmat[2, 3]=4; diffmat[2, 4]=-1;
+for(r in 3: (nalph-2)){
+diffmat[r, r-2]=-1; diffmat[r, r-1]=4; diffmat[r, r+1]=4; diffmat[r, r+2]=-1;
+}
+diffmat[nalph-1, nalph-3]=-1; diffmat[nalph-1, nalph-2]=4; diffmat[nalph-1, nalph]=2;
+diffmat[nalph, nalph-2]=-1; diffmat[nalph, nalph-1]=2;
+
+# ------ Initialization ---------
+# Here we try to get the initial estimate of $\ualpha=(\alpha_1, \cdots, \alpha_q)$
+# and $\ubeta=(\beta_1, \cdots, \beta_p)$.
+alpha=sort(runif(nalph, -2, 2)) 
+org.alpha=alpha
+beta=seq(runif(nbet, -2, -1));
+sigma2q=0.01
+sigma2x=0.25;  sigma2m=.01
+delalph=0.005; delbeta=0.05
+x=  initial.x
+# The prior for sigma^2 is IG(2, 1) ####
+# The prior for tau is IG(4, 4)  #######
+# the precision parameter is alpha0
+#a0=2.1; b0=0.25; 
+tau=0.5;
+alpha0=1.00;
+#
+storage.mode(combdata)<-"double"; storage.mode(diffmat)<-"double"
+storage.mode(dmatbeta)<-"double"; 
+storage.mode(dmatalpha)<-"double";
+outalpha=as.double(rep(0, nalph));
+outx=as.double(rep(0, ntot))
+var=as.double(0);storedelalph=NULL; storealpha=NULL; storesig2q=NULL;
+storesigma2m=NULL;
+storebeta=NULL;  outbeta=as.double(rep(0, nbet)); 
+storedelbeta=NULL
+storelambdam=NULL;
+storelambdaq=NULL;
+storetau=NULL;
+storephisg2=NULL;
+storephimu=NULL;
+propx=rep(0, ntot); 
+propmean=as.double(rep(0, ntot))
+propvar=as.double(rep(0, ntot))
+propx=as.double(rep(0, ntot))
+alpha0out=as.double(0)
+storek=NULL; storealpha0=NULL;
+########### Initial values for the DPP #################
+ndistinct=4; # number of distinct values
+phi=matrix(0, nrow=2, ncol=ntot); phiout=phi
+phi[1, 1:ndistinct]=rnorm(ndistinct, 3, 0.2)
+phi[2, 1:ndistinct]=(1:ndistinct)/100
+rmul=rmultinom(ntot, size=1, rep(1/ndistinct, ndistinct))
+indicator=matrix(rep(1:ndistinct, ntot), nrow=ndistinct)[rmul==1]
+storage.mode(phi)<-"double"; storage.mode(phiout)<-"double"
+ncount=rep(0, ntot); ncountout=ncount; 
+storage.mode(ncount)<-"integer"; storage.mode(ncountout)<-"integer"
+for( i in 1:ndistinct){
+ncount[i]=length(indicator[indicator==i])
+}
+ndistinctout=as.integer(0)
+indicatorout=as.integer(rep(0, ntot))
+########## Beginning of the MCMC #######################
+out.1$std=sqrt(sum(out.1$residual^2)/(m-2))
+psi=c(as.numeric(out.1$coefficients), out.1$std^2)
+#
+const=gamma(a0+0.5)*sqrt(1/b0)/(gamma(a0)*gamma(0.5));
+a.sig2q=(25+ntot/2)
+a.sig2m=a0+m
+temp1=matrix(0, nrow=ntot, ncol=nalph);
+temp2=matrix(0, nrow=ntot, ncol=nbet);
+storage.mode(temp1)<-"double";
+storage.mode(temp2)<-"double";
+#print('check-0');
+
+for( j in 1: 100){ 
+#print('j='); print(j)
+isd=runif(1, 1, 90000)
+################# calculation of the spline for alpha ################
+dmatalpha=bs(x, knots=knot.pt.a, degree=3, Boundary.knots=bn, intercept=TRUE);
+################ resampling alpha ######################################
+fn=.Fortran("detalpha", output=outalpha, ntot=as.integer(ntot),  
+nc=as.integer(nc), nalph=as.integer(nalph), combdata, alpha=as.double(alpha),
+ isd=as.integer(isd), diffmat, delalph=as.double(delalph), 
+sigma2q=as.double(sigma2q), dmatalpha, sigma2alpha=as.double(sigma2alpha))
+#print('check-1')
+alpha=fn$output
+storealpha=rbind(storealpha, alpha)
+#print('alpha='); print(alpha)
+################# resampling delalpha #####################
+delalph=rgamma(1, (0.001+nalph/2), (0.5*sum((penaltymat%*%alpha)^2) +0.001))
+storedelalph=c(storedelalph, delalph);
+#####################################################
+const1=const/sqrt(2*(1+tau));
+############# Sampling of phi_i's ########################
+#print('phi='); print(phi[, 1:10])
+#print('ncount='); print(ncount[1:40])
+h0=.Fortran("dpp", ntot=as.integer(ntot), ncount=as.integer(ncount), 
+phi, a0=as.double(a0), b0=as.double((1/b0)), alpha0=as.double(alpha0), 
+tau=as.double(tau), output1=ncountout, output2=phiout, output3=indicatorout,
+output4=ndistinctout, isd=as.integer(isd), indicator=as.integer(indicator),
+ ndistinct=as.integer(ndistinct), 
+x=as.double(x), const1=as.double(const1))
+#print('check-2')
+ncount=h0$output1;
+phi=h0$output2;
+indicator=h0$output3;
+ndistinct=h0$output4;
+storephimu=rbind(storephimu, phi[1, 1:10])
+storephisg2=rbind(storephisg2, phi[2, 1:10])
+storek=rbind(storek, as.numeric(ndistinct))
+############# Resampling tau #############################
+a.tau=(a0+ndistinct/2);
+tau=1/rgamma(1, a.tau, (sum (phi[1, 1:ndistinct]^2/(2*phi[2, 1:ndistinct]))+0.5))
+storetau=c(storetau, tau)
+################# resampling sigma2q ######################
+sigma2q=1/rgamma(1, a.sig2q, (4+sum((combdata[, 2]-dmatalpha%*%alpha)^2)/2))
+storesig2q=c(storesig2q, sigma2q)
+################# resampling X ###########################
+propmean=psi[1]+psi[2]*combdata[, 2];
+propvar=rep(psi[3], ntot);
+propx=rnorm(ntot, propmean, sqrt(propvar))
+
+temp1=bs(propx, knots=knot.pt.a, degree=3, Boundary.knots= bn, intercept=TRUE);# for alpha
+temp2=temp1
+#temp2=bs(propx, knots=knot.pt.b, degree=3, Boundary.knots= bn, intercept=TRUE);# for beta
+
+h1=.Fortran("samplex", m=as.integer(m), ntot=as.integer(ntot), 
+nc=as.integer(nc), nalph=as.integer(nalph), nbet=as.integer(nbet), alpha=as.double(alpha), 
+ beta=as.double(beta), propx=as.double(propx), x=as.double(x),
+ combdata, sigma2m=as.double(sigma2m), sigma2q=as.double(sigma2q), output=outx,
+ isd=as.integer(isd), temp1, temp2, dmatalpha, dmatbeta, phi, indicator=as.integer(indicator), 
+     propmean=as.double(propmean), propvar=as.double(propvar))
+#print('check-4')
+x=h1$output
+##################### spline beta ########################
+dmatbeta=bs(x, knots=knot.pt.b, degree=3, Boundary.knots=bn, intercept=TRUE);
+############### resampling beta ############################
+fn=.Fortran("detbeta", output=outbeta, ntot=as.integer(ntot), m=as.integer(m), 
+nc=as.integer(nc), nbet=as.integer(nbet),  combdata,
+beta=as.double(beta), isd=as.integer(isd), diffmat, del=as.double(delbeta),
+ dmatbeta, sigma2beta=as.double(sigma2beta))
+#print('check-5')
+beta=fn$output
+storebeta=rbind(storebeta, beta)
+################## resampling delbeta ######################
+delbeta=rgamma(1, (0.001+nbet/2), (0.5*sum((penaltymat%*%beta)^2) +0.001))
+storedelbeta=c(storedelbeta, delbeta);
+################## resampling of sigma2m #######################
+sigma2m=1/rgamma(1, a.sig2m, (b0+  (sum((combdata[1:m, 3]-x[1:m])^2)+sum((combdata[1:m, 4]-x[1:m])^2))/2) );
+storesigma2m=c(storesigma2m, sigma2m)
+################## determination of alpha0 #######################
+storealpha0=rbind(storealpha0, alpha0)
+}# for MCMC iteration 
+##### The above was for first 50 iterations ############################
+for( j in 101: totiter){ 
+#j=1
+#print('j='); print(j)
+
+#print('j='); print(j)
+isd=runif(1, 1, 90000)
+################# calculation of the spline for alpha ################
+dmatalpha=bs(x, knots=knot.pt.a, degree=3, Boundary.knots=bn, intercept=TRUE);
+################ resampling alpha ######################################
+fn=.Fortran("detalpha", output=outalpha, ntot=as.integer(ntot),  
+nc=as.integer(nc), nalph=as.integer(nalph), combdata, alpha=as.double(alpha),
+ isd=as.integer(isd), diffmat, delalph=as.double(delalph), 
+sigma2q=as.double(sigma2q), dmatalpha, sigma2alpha=as.double(sigma2alpha))
+#print('check-1')
+alpha=fn$output
+storealpha=rbind(storealpha, alpha)
+#print('alpha='); print(alpha)
+################# resampling delalpha #####################
+delalph=rgamma(1, (0.001+nalph/2), (0.5*sum((penaltymat%*%alpha)^2) +0.001))
+storedelalph=c(storedelalph, delalph);
+#####################################################
+const1=const/sqrt(2*(1+tau));
+############# Sampling of phi_i's ########################
+#print('phi='); print(phi[, 1:10])
+#print('ncount='); print(ncount[1:40])
+h0=.Fortran("dpp", ntot=as.integer(ntot), ncount=as.integer(ncount), 
+phi, a0=as.double(a0), b0=as.double((1/b0)), alpha0=as.double(alpha0), 
+tau=as.double(tau), output1=ncountout, output2=phiout, output3=indicatorout,
+output4=ndistinctout, isd=as.integer(isd), indicator=as.integer(indicator),
+ ndistinct=as.integer(ndistinct), 
+x=as.double(x), const1=as.double(const1))
+#print('check-2')
+ncount=h0$output1;
+phi=h0$output2;
+indicator=h0$output3;
+ndistinct=h0$output4;
+storephimu=rbind(storephimu, phi[1, 1:10])
+storephisg2=rbind(storephisg2, phi[2, 1:10])
+storek=rbind(storek, as.numeric(ndistinct))
+############# Resampling tau #############################
+a.tau=(a0+ndistinct/2);
+tau=1/rgamma(1, a.tau, (sum (phi[1, 1:ndistinct]^2/(2*phi[2, 1:ndistinct]))+0.5))
+storetau=c(storetau, tau)
+################# resampling sigma2q ######################
+sigma2q=1/rgamma(1, a.sig2q, (4+sum((combdata[, 2]-dmatalpha%*%alpha)^2)/2))
+storesig2q=c(storesig2q, sigma2q)
+################# resampling X ###########################
+propmean=psi[1]+psi[2]*combdata[, 2];
+propvar=rep(psi[3], ntot);
+propx=rnorm(ntot, propmean, sqrt(propvar))
+
+temp1=bs(propx, knots=knot.pt.a, degree=3, Boundary.knots= bn, intercept=TRUE);# for alpha
+temp2=temp1
+#temp2=bs(propx, knots=knot.pt.b, degree=3, Boundary.knots= bn, intercept=TRUE);# for beta
+
+h1=.Fortran("samplex", m=as.integer(m), ntot=as.integer(ntot), 
+nc=as.integer(nc), nalph=as.integer(nalph), nbet=as.integer(nbet), alpha=as.double(alpha), 
+ beta=as.double(beta), propx=as.double(propx), x=as.double(x),
+ combdata, sigma2m=as.double(sigma2m), sigma2q=as.double(sigma2q), output=outx,
+ isd=as.integer(isd), temp1, temp2, dmatalpha, dmatbeta, phi, indicator=as.integer(indicator), 
+     propmean=as.double(propmean), propvar=as.double(propvar))
+#print('check-4')
+x=h1$output
+##################### spline beta ########################
+dmatbeta=bs(x, knots=knot.pt.b, degree=3, Boundary.knots=bn, intercept=TRUE);
+############### resampling beta ############################
+fn=.Fortran("detbeta", output=outbeta, ntot=as.integer(ntot), m=as.integer(m), 
+nc=as.integer(nc), nbet=as.integer(nbet),  combdata, beta=as.double(beta),
+ isd=as.integer(isd), diffmat, del=as.double(delbeta), dmatbeta, sigma2beta=as.double(sigma2beta))
+#print('check-5')
+beta=fn$output
+storebeta=rbind(storebeta, beta)
+################## resampling delbeta ######################
+delbeta=rgamma(1, (0.001+nbet/2), (0.5*sum((penaltymat%*%beta)^2) +0.001))
+storedelbeta=c(storedelbeta, delbeta);
+################## resampling of sigma2m #######################
+sigma2m=1/rgamma(1, a.sig2m, (b0+  (sum((combdata[1:m, 3]-x[1:m])^2)+sum((combdata[1:m, 4]-x[1:m])^2))/2) );
+storesigma2m=c(storesigma2m, sigma2m)
+################## determination of alpha0 #######################
+mnofk=mean(storek[(j-25): j])
+h5=.Fortran("detrminealpha0", mnofk=as.double(mnofk),
+ ntot=as.integer(ntot), alpha0=as.double(alpha0), output=alpha0out);
+ alpha0=h5$output;    
+storealpha0=rbind(storealpha0, alpha0)
+} # for MCMC iteration 
+###################################################
+result=list(storealpha, storebeta, storesig2q, storesigma2m, storek, storealpha0)
+name.result=c("alpha", "beta", "sigma2q", "sigma2m", "k", "alpha0")
+names(result)<-name.result
+return(result)
+}
+}
+
+
+
+
