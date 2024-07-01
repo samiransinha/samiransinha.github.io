@@ -2,19 +2,19 @@
 main:
   - title: "CV"
     url: /files/samcv.pdf
-  
+
+  - title: "Publications"
+    url: /mypublication/
+    
+  - title: "Teaching"
+    url: /teaching/    
+    
   - title: "Members"
-    url: /talks/    
+    url: /Members/    
 
   - title: "Miscellaneous"
     url: /portfolio/
 
-  - title: "Publications"
-    url: /mypublication/
-
-  - title: "Teaching"
-    url: /teaching/    
-    
         
   #- title: "Blog Posts"
   #  url: /year-archive/
