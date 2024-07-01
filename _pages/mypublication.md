@@ -182,8 +182,8 @@ matched case-control studies with multiple disease states. Biometrics, 60,
 </li>
 </ol>
 
-Book Chapters
-=====
+**Book Chapters**
+<!--=====-->
 <ol reversed>
 <li> Wang, T., Bandyopadhyay, D. and Sinha, S. Efficient estimation of the additive risks model for interval-censored data. To appear as a book chapter in an edited volume on interval-censored data (Editors: Jianguo Sun and Ding-Geng Chen). 
 <a href= "https://arxiv.org/abs/2203.09726">Article</a>, <a href="https://github.com/laozaoer/MMIntAdd">R package</a></li>
