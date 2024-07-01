@@ -1,0 +1,207 @@
+# This program is for analyzing right-censored datasets using the EE method proposed in 
+#"Analysis of cohort studies with multivariate and partially observed disease classification data" by 
+# Chatterjee et al. (2010).  
+#####
+# User must provide the following variables:
+# 1. Scalar covariate X
+# 2. V=min(T, C), T: Failure time and C: Censoring time 
+# 3. delta=I(T<=C)
+# 4. ndischar: Number of disease characteristics
+# 5. numlevels: a vector of integers which represent the number of levels of each characteristics. For 
+# example, if the first, second and the third characteristics have 2, 4, and 2 nominal levels, respectively, 
+# numlevels=c(2, 4, 2).  
+# 6. disease.char: Matrix of disease characteristics for all the subjects
+#####
+# Our goal is to estimate the contrast parameters associated with the 
+# disease characeristics and the corresponding standard errors. 
+# This program can handle missing disease characteristics in a dataset. 
+# the subroutines onlinesubroutineBKA2010.f.
+# the length of x, v, delta, and the number of rows of disease.char must be the same. 
+
+
+#rm(list=ls(all=TRUE))
+
+ee<-function(x, v, delta, ndischar, numlevels, disease.char){
+
+library(survival)
+numlevels=c(1, numlevels);
+
+# The total number of disease subtypes
+tot.subtype=prod(numlevels)
+
+# The number of baseline related parameters
+nalpha=sum(numlevels[-1])-ndischar
+
+# The number of contrast parameters to be estimated
+npsi=1+sum(numlevels[-1])-ndischar 
+
+# Total number of parameters to be determined
+ndim=npsi+nalpha
+
+# We need this design matrix 
+count=numlevels[-1];
+zmat=NULL;
+
+for (i1 in ndischar: 1){
+  M3=NULL
+  for( i2 in 1:count[i1]){ 
+   vec=rep(0, count[i1]);
+   vec[i2]=1;
+   store.M=zmat
+   M2=NULL;
+   if(i1==ndischar) {
+    M2=rbind(M2, vec)
+              } else {
+    for( i3 in 1: nrow(zmat)){
+    vec1=c(vec, store.M[i3, ])
+    M2=rbind(M2, vec1)         }
+                     }
+   M3=rbind(M3, M2)                
+                         }
+  zmat=M3                      
+                  }
+####### Sorting data  
+n=length(x);  # Number of subjects
+
+ordered.v=sort(v, index.return=T)
+v=v[ordered.v$ix];
+x=x[ordered.v$ix];
+delta=delta[ordered.v$ix]
+if(ndischar>1) disease.char=disease.char[ordered.v$ix, ] else disease.char=disease.char[ordered.v$ix]
+
+
+del=matrix(0, ncol=ndischar, nrow=n);
+if(ndischar>1){
+for(i in 1:n)if(delta[i]==1)del[i, ][disease.char[i, ]!=0]<-1} else {
+for(i in 1:n)if(delta[i]==1)del[i, ][disease.char[i]!=0]<-1
+}
+pr.del=rep(0, n);
+for(i in 1:n){pr.del[i]=prod(del[i, ])}
+
+mod.zmat=cbind(rep(1, tot.subtype), zmat[ ,-cumsum(numlevels[-(ndischar+1)])])
+
+##############################################################
+######## Calculation of P matrix ################
+p=matrix(0, ncol=tot.subtype, nrow=n);
+if(ndischar>1){
+######
+for( i in 1:n){
+if( delta[i]==1){ 
+d.char=disease.char[i, ] # levels of the disease characteristics
+miss.char=del[i, ] 
+if( length(miss.char[miss.char==1])==0) {p[i, ]=rep(1, tot.subtype)} else{
+
+#temp.vec1=miss.char*c(0, numlevels[2], 2*numlevels[2])+miss.char*d.char
+temp.vec1=miss.char*c(0, cumsum(numlevels[2:ndischar]))+miss.char*d.char
+temp.vec2=rep(1, sum(miss.char))
+for( k in 1:tot.subtype){
+if(identical(temp.vec2, as.numeric(zmat[k, temp.vec1 ]))) p[i, k]=1
+}
+}
+    }
+}
+######
+} else{
+######
+
+for( i in 1:n){
+if( delta[i]==1){ 
+d.char=disease.char[i] # levels of the disease characteristics
+miss.char=del[i, ] 
+if( length(miss.char[miss.char==1])==0) {p[i, ]=rep(1, tot.subtype)} else{
+
+#temp.vec1=miss.char*c(0, numlevels[2], 2*numlevels[2])+miss.char*d.char
+temp.vec1=miss.char*c(0)+miss.char*d.char
+temp.vec2=rep(1, sum(miss.char))
+for( k in 1:tot.subtype){
+if(identical(temp.vec2, as.numeric(zmat[k, temp.vec1 ]))) p[i, k]=1
+}
+}
+    }
+}
+######
+} # for if and else
+## Estimate of the parameters by the simple partial likelihood approach based only on  
+##### completely observed data
+mat=NULL; var.cov=NULL; outbeta1=NULL;
+for( k in 1: tot.subtype){
+index.0=(1:n)[delta==0]
+index.1=(1:n)[apply(p, 1, sum)==1 & p[, k]==1]
+
+if((length(index.1) >0) &(length(index.0)>0)) {
+index=union(index.0, index.1)
+
+out1=coxph(Surv(v[index], delta[index])~x[index])
+if(out1$var<100){
+outbeta1=c(outbeta1, out1$coef)
+var.cov=c(var.cov, out1$var);
+mat=rbind(mat, mod.zmat[k, ])    
+}}
+}
+inv.var.cov=matrix(0, ncol=length(var.cov), nrow=length(var.cov));
+ diag(inv.var.cov)=(1/var.cov);
+psi.var.cov.pl=solve(t(mat)%*%inv.var.cov%*%mat)
+psi.pl=psi.var.cov.pl%*%t(mat)%*%inv.var.cov%*%outbeta1;
+psi.pl.sd=t(sqrt(diag(psi.var.cov.pl))) 
+########## End of complete-case analysis  #####
+###########
+zn=mod.zmat[,-1]
+ndimzn=ncol(mod.zmat)-1
+storage.mode(zn)<-"double"; 
+storage.mode(mod.zmat)<-"double";
+ndimz=ncol(mod.zmat)
+p1=p[apply(p, 1, sum)!=0, ];
+storage.mode(p1)<-"double";  
+storage.mode(p)<-"double"; 
+nf=sum(delta) # number of failures
+fail.index=(1:n)[delta==1] # index of the subjects who failed
+
+##############################################################
+derivu=matrix(0, ncol=ndim, nrow=ndim);
+storage.mode(derivu)<-"double"
+newmat=matrix(0, nrow=n, ncol=nf)
+storage.mode(newmat)<-"integer"
+newsize1=rep(0, n)
+for( i in 1: n){
+ tempo=(1:nf)[(v[fail.index]<=v[i])]
+  newsize1[i]=length(tempo)
+if( newsize1[i]>0)  newmat[i, (1:length(tempo))]<-tempo 
+ }
+
+ssscore=matrix(0, ndim, ndim)
+storage.mode(ssscore)<-"double"
+alpha=rep(0.1, ndimzn);
+psi=rep(0, ndimz) 
+store.eps=as.double(0);
+ store.iteration=as.integer(1);
+ store.u=as.double(rep(0, ndim))
+########## Dynamic Loading of the subroutines
+dyn.load("subroutineBKA2010.so")
+##############
+
+g2=.Fortran("eewtsd",  nf=as.integer(nf), 
+npsi=as.integer(npsi), nalpha=as.integer(nalpha), ndim=as.integer(ndim), 
+x=as.double(x), delta=as.double(delta), initialpsi=as.double(psi.pl), 
+output1=psi, output2=alpha,
+ mod.zmat, zn, p1, ndimz=as.integer(ndimz), ndimzn=as.integer(ndimzn), 
+ numlevels=as.integer(numlevels),  
+ output4=derivu, t1=as.integer(fail.index), n=as.integer(n), 
+tot.subtype=as.integer(tot.subtype), nrep=as.integer(20), newsize1=as.integer(newsize1), 
+newmat, output5=ssscore, output6=store.eps, output7=store.iteration, output8=store.u)
+
+
+ 
+psi.est= (g2$output1) # Final estimate of the proposed method of BKA 2010
+alpha.est=g2$output2
+covv=(g2$output4)%*%(g2$output5)%*%t(g2$output4)  
+
+psi.std.err=sqrt(diag(covv))[1:npsi]  # Standard error of the estimate of BKA 2010
+alpha.std.err= sqrt(diag(covv))[(npsi+1):ndim]
+
+result=list(psi.est, psi.std.err, alpha.est, alpha.std.err, psi.pl, psi.pl.sd, g2$output6, g2$output7, g2$output8)
+names(result)<-c("psi.est.ee", "psi.se.ee", "alpha.est.ee", "alpha.se.ee", "psi.est.pl", "psi.se.pl", "tolerance", 
+"require.no.of.iteration", "value.of.estimating.equations")
+return(result)
+}
+
+
