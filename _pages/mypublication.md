@@ -38,7 +38,7 @@ Physical Review D. <a href="https://arxiv.org/abs/2307.13792">Article</a>.
 <li> Singh, S., Venkatasamy, L., White, T., Sinha, S., Glaser, S., Safe, SS., and Chakraborty, S. CXCL11/CXCR3 mediates tumor lymphatic crosstalk and inflammation induced tumor promoting mechanisms in head and neck cancers. American Journal of Pathology. <a href="https://www.ncbi.nlm.nih.gov/pubmed/32035061">Article</a>
 </li> 
 <li> Lee, D.,  Lahiri, S. N. and Sinha, S. A  test of homogeneity of distributions when observations are  subject to  measurement errors. Biometrics. <a href="http://samiransinha.github.io/files/research/paper_August_2019.pdf">Article</a>, 
-  <a href="http://samiransinha.github.io/files/research/supple-August-2019.pdf">Supplementary materials</a></li>, R package <a href="https://cran.r-project.org/web/packages/MEtest/index.html">MEtest</a>, 
+  <a href="http://samiransinha.github.io/files/research/supple-August-2019.pdf">Supplementary materials</a>, R package <a href="https://cran.r-project.org/web/packages/MEtest/index.html">MEtest</a>, 
 This <a href="http://samiransinha.github.io/files/codes/MEtest_examples2019.html">file</a> contains illustrative examples on how to use the package for different scenarios. 
 </li>
 <li> Dutta, B., Liao, S., Sinha, S. and Strigari, LE. Searching for Beyond the Standard Model Physics with COHERENT energy and timing data. Physical Review Letters. <a href="https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.123.061801">Article</a>
