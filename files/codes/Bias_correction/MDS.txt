@@ -1,0 +1,350 @@
+rm(list=ls(all=TRUE))
+ef2 <- function(beta, vi, zi, xi){
+   t <- exp(zi*beta[1] + xi*beta[2])
+   s <- sum(vi * t)
+   return(s)
+}
+
+#========= infor2mation matrix =======================
+# M: number of controls
+
+infor2 <- function(beta, z, x, ncase, M){
+   s1 <- 0 
+   s2 <- 0
+   s3 <- 0
+   for(i in 1:ncase){ 
+       index <- ((i-1)*M + i):(i*M + i)
+       zi <- z[index]
+       xi <- x[index]
+       t <- ef2(beta, rep(1,M+1), zi, xi ) 
+       z2 <- ef2(beta, zi^2, zi, xi ) 
+       z1 <- ef2(beta, zi, zi, xi )  
+       s1 <- s1 + z2/t - z1^2/t^2
+   
+       x2 <- ef2(beta, xi^2, zi, xi ) 
+       x1 <- ef2(beta, xi, zi, xi)
+       s2 <- s2 + x2/t - x1^2 / t^2
+   
+       xz <-  ef2(beta, xi*zi, zi, xi ) 
+       s3 <- s3 + xz/t - z1*x1/t^2
+    } 
+
+    a <- matrix(c(s1, s3, s3, s2), nrow=2)
+
+ return(a)
+
+}
+
+#============Dibeta=====( Dibeta1, Dibeta2, DDibeta1, DDibeta2, DDibeta1_beta2 )==========
+Dibeta2 <- function(beta, z, x, ncase, M){
+     s1 <- 0
+     s2 <- 0
+     s3 <- 0
+     s4 <- 0
+     s5 <- 0
+     s6 <- 0
+     s7 <- 0
+     s8 <- 0
+     s9 <- 0
+     
+    for(i in 1:ncase){
+
+       index <- ((i-1)*M + i):(i*M + i)
+       zi <- z[index]
+       xi <- x[index]
+       t <- ef2(beta, rep(1,M+1), zi, xi )  
+
+       z4 <- ef2(beta, zi^4, zi, xi)      
+       z3 <- ef2(beta, zi^3, zi, xi)
+       z2 <- ef2(beta, zi^2, zi, xi)
+       z1 <- ef2(beta, zi,   zi, xi)
+ 
+       x4 <- ef2(beta, xi^4, zi, xi)      
+       x3 <- ef2(beta, xi^3, zi, xi)
+       x2 <- ef2(beta, xi^2, zi, xi)
+       x1 <- ef2(beta, xi,   zi, xi)
+
+       z3x <- ef2(beta, zi^3*xi, zi, xi)
+       z2x <- ef2(beta, zi^2*xi, zi, xi)
+       x3z <- ef2(beta, zi*xi^3, zi, xi)
+       x2z <- ef2(beta, zi*xi^2, zi, xi)
+       xz <- ef2(beta, zi*xi,  zi, xi)
+       x2z2 <- ef2(beta, zi^2*xi^2,  zi, xi)
+      
+       s1 <- s1 + z3/t - z2*z1/t^2 - 2*z1*(z2*t-z1^2)/t^3  #Dbeta1^3
+       s2 <- s2 + x3/t - x2*x1/t^2 - 2*x1*(x2*t-x1^2)/t^3  #Dbeta2^3
+       s3 <- s3 + z2x/t - z2*x1/t^2 - 2*z1*(xz *t - z1*x1)/t^3  #Dbeta1^2_beta2
+       s4 <- s4 + x2z/t - x2*z1/t^2 - 2*x1*(xz *t - x1*z1)/t^3   #Dbeta1_beta2^2
+ 
+       m1 <- (z3*t - z2*z1)*t^2 - 2*(z2*t-z1^2)*t*z1
+       s5 <- s5 + (z4*t - z2^2)/t^2 - 2*(z3*t-z2*z1)*z1/t^3 - 2*( (z2*t-z1^2)^2/t^4 + z1*m1/t^5 )  #Dbeta1^4
+
+       m2 <- (x3*t - x2*x1)*t^2 - 2*(x2*t-x1^2)*t*x1
+       s6 <- s6 + (x4*t - x2^2)/t^2 - 2*(x3*t-x2*x1)*x1/t^3 - 2*( (x2*t-x1^2)^2/t^4 + x1*m2/t^5 ) #Dbeta2^4
+
+
+       m3<- (z2x*t+z2*x1-2*z1*xz)*t^2 - 2* (z2*t-z1^2)*t*x1   #Dbeta1^3_beta2
+       s7 <- s7 + (z3x*t+z3*x1-z2x*z1 - z2*xz)/t^2 - 2*( z3*t-z2*z1 )*x1/t^3 - 2*( (xz*t-z1*x1)*(z2*t-z1^2)/t^4 + z1*m3/t^5  )
+       
+
+       m4 <- (x2z*t+x2*z1-2*x1*xz)*t^2 - 2* (x2*t-x1^2)*t*z1   #Dbeta1_beta2^3
+       s8 <- s8 + (x3z*t+x3*z1-x2z*x1 - x2*xz)/t^2 - 2*( x3*t-x2*x1 )*z1/t^3 - 2*( (xz*t-z1*x1)*(x2*t-x1^2)/t^4 + x1*m4/t^5  )
+
+       m5 <- (x2z*t-z1*x2)*t^2 -2*t*x1*(xz*t-z1*x1)
+       s9 <- s9 +  (x2z2*t - z2*x2)/t^2 - 2*x1*(z2x*t-z2*x1)/t^3 - 2*( (xz*t-z1*x1)^2/t^4 + z1*m5/t^5 )  #Dbeta1^2_beta2^2
+      
+       }
+     
+       ibeta1 <- matrix(c(s1,s3,s3,s4), nrow=2) #Dibeta1 
+       ibeta2 <- matrix(c(s3,s4,s4,s2), nrow=2) #Dibeta2  
+       ibeta3 <- matrix(c(s5,s7,s7,s9), nrow=2) #Dibeta1^2
+       ibeta4 <- matrix(c(s9,s8,s8,s6), nrow=2) #Dibeta2^2
+       ibeta5 <- matrix(c(s7,s9,s9,s8), nrow=2) #Dibeta1_beta2      
+       v <- cbind(ibeta1, ibeta2, ibeta3, ibeta4, ibeta5)
+       return(v)
+}  
+
+#======================= S(theta)=============ok======================
+Scor2 <- function(beta, y, z, x, ncase, M){
+      s1 <- 0
+      s2 <- 0
+      for(i in 1:ncase){
+         index <- ((i-1)*M + i):(i*M + i)
+         zi <- z[index]
+         xi <- x[index]
+         yi <- y[index]
+         t <- ef2(beta, rep(1,M+1), zi, xi ) 
+         z1 <- ef2( beta, zi , zi, xi )
+         s1 <- s1 + sum(yi*zi) - z1/t
+         x1 <- ef2(beta, xi , zi, xi) 
+         s2 <- s2 + sum(yi*xi) - x1/t         
+     }
+     u <- matrix(c(s1,s2), ncol=1)
+     return(u)
+}
+
+#============= S.star =======================================
+Scor.star2 <- function(beta, y, z, x, ncase, M){
+      itheta <- infor2(beta, z,x,ncase, M)
+      S <- Scor2(beta, y, z, x, ncase, M)
+      H <- Dibeta2(beta, z, x, ncase, M)   
+      Dibeta1 <- H[, c(1,2)]
+      Dibeta2 <- H[, c(3,4)]
+      t0 <- solve(itheta)
+      t1 <- t0%*%Dibeta1
+      t2 <- t0%*%Dibeta2
+      S_star <- S + c( sum(diag(t1)), sum(diag(t2)) )/2 
+      return(S_star)
+
+}
+#=============Si(theta)====================
+Si2 <- function(beta, yi, zi , xi, M){
+      t  <- ef2( beta, rep(1, M+1), zi, xi )
+      z1 <- ef2( beta, zi, zi, xi )
+      x1 <- ef2(beta, xi , zi, xi) 
+
+      v1 <- sum(yi*zi) - z1/t
+      v2 <- sum(yi*xi) - x1/t    
+      u <- matrix(c(v1,v2), ncol=1)
+      return(u)
+}
+
+#========= SST_star(theta)======================
+SST.star2 <- function(beta, y, z, x, ncase, M){
+      itheta <- infor2(beta, z, x, ncase, M)
+      H <- Dibeta2(beta, z, x, ncase, M)
+      Dibeta1 <- H[, c(1,2)]
+      Dibeta2 <- H[, c(3,4)]
+      t0 <- solve(itheta)
+      t1 <- t0%*%Dibeta1
+      t2 <- t0%*%Dibeta2
+      tra <- c( sum(diag(t1)), sum(diag(t2)) )/(2*ncase) 
+
+      s <- 0
+      for(i in 1:ncase){
+         index <- ((i-1)*M + i):(i*M + i)
+         yi <- y[index]
+         zi <- z[index]
+         xi <- x[index]
+         v0 <- Si2(beta, yi, zi , xi, M) 
+         s <- s + v0%*%t(tra) + tra %*% t(v0) 
+      }
+
+   return(s + itheta + ncase* tra %*% t(tra))
+}
+
+#========= trace matrix =============
+Mtracr2 <- function(beta, z, x, ncase, M){
+	H <- Dibeta2(beta, z, x, ncase, M)
+	I <- infor2(beta, z, x, ncase, M)
+      ivI <- solve(I)
+      b1 <- H[, c(1,2)]
+      b2 <- H[, c(3,4)]
+      bb1 <- H[, c(5,6)]
+      bb2 <- H[, c(7,8)]
+      b12 <- H[, c(9,10)]
+      a11 <- sum( diag(-1*ivI%*%b1%*%ivI%*%b1 + ivI %*% bb1))
+      a22 <- sum( diag(-1*ivI%*%b2%*%ivI%*%b2 + ivI %*% bb2))
+      a12 <- sum( diag(-1*ivI%*%b2%*%ivI%*%b1 + ivI %*% b12))
+      a <- matrix(c(a11, a12, a12, a22), nrow=2)
+      return(a)
+}
+
+#===================== Newton2 Method ==============================
+Newton2 <- function(eps, beta, y, z, x, ncase, M){
+      beta1 <- matrix(0, ncol=1, nrow=2)
+      beta <- matrix(beta, nrow=2, ncol=1)
+      flag <- 0
+      dist <- 1
+      ite <- 0
+      ite_max <- 25
+      if(max(abs(beta))>=8 ) flag <- 99 else{
+          S.star <- Scor.star2(beta, y, z, x, ncase, M)
+          H <- infor2(beta, z, x, ncase, M)
+          MM <- Mtracr2(beta, z, x, ncase, M)
+          I.star <- H - MM/2
+          eg <- eigen(I.star)$values 
+          if(min(abs(eg)) <= 0.0001) flag <- 77
+       }
+
+      while( sqrt(dist) > eps & flag==0){ 
+              beta1 <- beta + solve(I.star)%*% S.star
+              dist <- sum((beta1-beta)^2)
+              beta <- beta1
+              if(max(abs(beta))>=8) flag <- 99 else {
+                 H <- infor2(beta, z, x, ncase, M)
+                 MM <- Mtracr2(beta, z, x, ncase, M)
+                 I.star <- H - MM/2
+                 eg <- eigen(I.star)$values 
+                 if(min(abs(eg)) <= 0.0001) flag <- 77  else {
+                      S.star <- Scor.star2(beta, y, z, x, ncase, M)
+                      ite <- ite + 1
+                   if(ite > ite_max & sqrt(dist)>eps) flag <-888
+                 }
+               }
+      }   #while  
+      if(flag==99 || flag==77) return(c(9999,9999)) else if(flag==888) {return(c(888,888))}
+      else return(beta)
+}
+
+
+#=============== Bias correction for univariate covariate ====================
+ef <- function(beta, vi, xi){
+   t <- exp(xi*beta)
+   s <- sum(vi * t)
+   return(s)
+}
+#================( Score funtion S(beta), Information matrix i(beta), Di_Dbeta, DDi_DDbeta )==========
+
+Dibeta <- function(beta, y, x, ncase, M){
+     s1 <- 0  # S(beta)
+     s2 <- 0  # I(beta) 
+     s3 <- 0  # first derivative of i(beta)
+     s4 <- 0  # second derivative of i(beta) 
+       
+    for(i in 1:ncase){
+       index <- ((i-1)*M + i):(i*M + i)
+       xi <- x[index]
+       yi <- y[index]
+       t  <- ef(beta, rep(1,M+1), xi) 
+       x1 <- ef(beta, xi,   xi)
+       x2 <- ef(beta, xi^2, xi)  
+       x3 <- ef(beta, xi^3, xi)
+       x4 <- ef(beta, xi^4, xi)      
+  
+       s1 <- s1 + sum(yi*xi) - x1/t   # score  function 
+       s2 <- s2 + x2/t - (x1/t)^2  # information matrix
+       s3 <- s3 + x3/t - x2*x1/t^2 - 2*x1*(x2*t-x1^2)/t^3  #-DlogL_Dbeta^3 = Di_beta
+       m1 <- (x3*t - x1*x2)*t^2 - 2*(x2*t-x1^2)*t*x1
+       s4 <- s4 + x4/t - (x2/t)^2 - 2*x1*( x3/t^2 - x2*x1/t^3) - 2*( (x2*t-x1^2)^2/t^4 + x1*m1/t^5 )  #-DlogL_Dbeta^4=Di_beta^2
+    }
+       v <- c(s1, s2, s3, s4)
+       return(v)
+}  
+
+#============= S.star: Corrected score function ====================
+Scor.star <- function(beta, y, x, ncase, M){
+      H <- Dibeta(beta, y, x, ncase, M)
+      v <- H[1] + 1/2 * H[3]/H[2]
+      return(v)
+}
+
+#=============Si(theta): ith component of socre funtion S(beta) ===========
+Si <- function(beta, yi, xi, M){
+      t  <- ef(beta, rep(1,M+1), xi) 
+      x1 <- ef(beta, xi , xi) 
+      v <- sum(yi*xi) - x1/t    
+      return(v)
+}
+#========= SST_star(theta): sum of Si.star * Si.star^T ==================
+SST.star <- function(beta, y, x, ncase, M){
+      H <- Dibeta(beta, y, x, ncase, M)
+      m <- 1/(2*ncase) * H[3]/H[2]
+      s <- 0
+      for(i in 1:ncase){
+         index <- ((i-1)*M + i):(i*M + i)
+         yi <- y[index]
+         xi <- x[index]
+         tt <- Si(beta, yi, xi, M)  
+         s <- s + tt %*% t(m) + m %*% t(tt)
+      }
+      return(s + H[2] + ncase * m%*%t(m))
+}
+
+#===================== Newton Method to solve S.star(beta)=0 ==========================
+Newton <- function(eps, beta, y, x, ncase, M){
+      flag <- 0
+      dist <- 1
+      ite <- 0
+      ite_max <- 100
+      s.star <- Scor.star(beta, y, x, ncase, M)
+      if(abs(beta)>=20) return(9999)  else if(abs(s.star) <= 1.0e-8) return(beta) else{ 
+          H <- Dibeta(beta, y, x, ncase, M)
+          MM <- H[4]/H[2] - (H[3]/H[2])^2 
+          I.star <- H[2] - MM/2
+          if(abs(I.star) <= 0.0001) flag=77 }
+      
+      while( dist> eps & abs(s.star)>1.0e-8 & flag==0 ){ 
+              beta1 <- beta + s.star/I.star
+              dist <- abs(beta1-beta)
+              beta <- beta1
+              if(abs(beta)>=20) flag=99 else{ 
+                  H <- Dibeta(beta, y, x, ncase, M)
+                  MM <- H[4]/H[2] - (H[3]/H[2])^2 
+                  I.star <- H[2] - MM/2
+                  if(abs(I.star) <= 0.0001) flag <- 77  else {
+                     s.star <- Scor.star(beta, y, x, ncase, M)
+                     ite <- ite + 1
+                     if(ite > ite_max ) flag <-888 
+                  }
+              }
+      }   #while  
+      if(flag==99|| flag==77) return(9999) else if(flag==888) {return(888)} else return(beta)
+}
+
+#===================================================================
+# input 
+#y=data[, 4]
+#covariate=(x, z)
+MDS<-function(y, covariate, ncase, M, eps, beta0){
+     if(ncol(covariate)==2){
+     estimate <- Newton2(eps, beta0, y, covariate[, 1], covariate[, 2], ncase, M)
+     uu <- infor2(estimate, covariate[,1], covariate[,2], ncase, M) 
+     Mtr <- Mtracr2(estimate, covariate[,1], covariate[,2], ncase, M)
+     T <-  -uu + Mtr/2
+     DSS <- solve( T )
+     SST0 <- SST.star2(estimate, y, covariate[,1], covariate[,2], ncase, M)
+     mm <- diag(DSS %*% SST0 %*% DSS) 
+     std <- sqrt(mm)
+     return(data.frame(estimate, std)) } else {
+     estimate <- Newton(eps, beta0, y, covariate, ncase, M)
+     uu <- infor(estimate, covariate, ncase, M) 
+     Mtr <- Mtracr(estimate, covariate, ncase, M)
+     T <-  -uu + Mtr/2
+     DSS <- solve( T )
+     SST0 <- SST.star(estimate, y, covariate, ncase, M)
+     mm <- diag(DSS %*% SST0 %*% DSS) 
+     std <- sqrt(mm)
+     return(data.frame(estimate, std)) }
+}
+
