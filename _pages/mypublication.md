@@ -52,9 +52,9 @@ This <a href="http://samiransinha.github.io/files/codes/MEtest_examples2019.html
 <li> Wei, Y., Ma, Y., Garcia, T. P., and Sinha, S. Consistent estimator for logistic mixed effect models. Canadian Journal of Statistics. <a href="http://samiransinha.github.io/files/research/randomslopefinalcjsversion.pdf"> Article</a>,
   <a href="http://samiransinha.github.io/files/research/randomslopesuppfinalcjsversion.pdf"> Supplementary materials</a> 
 </li>
-<li> Mandal, S., Wang, S., and Sinha, S. Analysis of linear transformation models with covariate measurement error and interval censoring. Statistics in Medicine. \[[research/SIM_2019-May-10.pdf pdf]\], \[[research/suppl_2019-May-07.pdf Supplementary Materials]\]</li>
-For this project an R package, named icemelt, has been created and is available from CRAN [https://cran.r-project.org/web/packages/icemelt/index.html] </li>
-This \[[codes/SIM_icemelt_examples2019.html html file]\] contains illustrative examples on how to use the package for different scenarios. 
+<li> Mandal, S., Wang, S., and Sinha, S. Analysis of linear transformation models with covariate measurement error and interval censoring. Statistics in Medicine. <a href="http://samiransinha.github.io/files/research/SIM_2019-May-10.pdf"> Article</a>, 
+<a href="http://samiransinha.github.io/files/research/suppl_2019-May-07.pdf">Supplementary materials</a>, <a href="https://cran.r-project.org/web/packages/icemelt/index.html"> R package icemelt from CRAN</a>, 
+This <a href="http://samiransinha.github.io/files/codes/SIM_icemelt_examples2019.html"> file</a> contains illustrative examples on how to use the package for different scenarios. 
 </li>
 <li> Cook, S., Blas, B., Carroll, R. J., and Sinha, S. Two wrongs make a right: Addressing underreporting in binary data from multiple sources. Political Analysis. \[[research/Scott_paper1_2016.pdf pdf]\] </li>
 R package: \[[research/mistwosources_1.0.tar.gz Linux]\], \[[research/mistwosources_1.0.zip Windows]\], \[[research/mistwosources-manual.pdf Reference manual]\]
