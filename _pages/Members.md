@@ -10,6 +10,11 @@ redirect_from:
 {% include base_path %}
 
 **Undergraduate research students**
+=====
+
+<img src="http://samiransinha.github.io/images/students/Wesley_picture.jpg" align="left" width="200px"/>
+some text floating around the image
+
 <div style="clear: both;">
   <div style="float: left; margin-right 1em;">
     <img src="http://samiransinha.github.io/images/students/Wesley_picture.jpg" alt="" width="325/">
