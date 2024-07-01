@@ -63,15 +63,13 @@ This <a href="http://samiransinha.github.io/files/codes/SIM_icemelt_examples2019
 <a href="http://samiransinha.github.io/files/codes/Codes_Lee.zip">R script</a>
 </li>
 <li> Zhang, Z., Sinha, S., Maiti, T., and Shipp, E. Bayesian variable selection in the AFT model with an application 
-to the SEER breast cancer data. Statistical Methods in Medical Research, 27, 971-990. \[[research/draft_seerdata_Dec_2015_rev2_sent2pub.pdf pdf]\], \[[research/suppl.pdf Supplementary Materials]\]</li> 
-\[[research/html.zip Matlab code in a zip file]\], 
-Matlab code as html files: \[[research/example.html example.html]\], 
-\[[research/AFT_Bayes_LASSO.html AFT_Bayes_LASSO.html]\]</li>
-This \[[codes/zhen_August2019.html html file]\] contains illustrative examples on how to use a number of variable selection techniques with the objects generated from the survival package, while the generalized F distribution is considered in 
-this \[[codes/zhen_genf_August2019.html html file]\].
+to the SEER breast cancer data. Statistical Methods in Medical Research, 27, 971-990. <a href="http://samiransinha.github.io/files/research/draft_seerdata_Dec_2015_rev2_sent2pub.pdf">Article</a>, <a href="http://samiransinha.github.io/files/research/suppl.pdf">Supplementary materials</a>,  
+<a href="http://samiransinha.github.io/files/codes/html.zip"> Matlab code</a>, and related files  <a href="http://samiransinha.github.io/files/codes/example.html"> example.html</a>, <a href="http://samiransinha.github.io/files/codes/AFT_Bayes_LASSO.html"> AFT Bayes LASSO</a></li>
+This <a href="http://samiransinha.github.io/files/codes/zhen_August2019.html html">file</a> contains illustrative examples on how to use a number of variable selection techniques with the objects generated from the survival package, while the generalized F distribution is considered in 
+this <a href="http://samiransinha.github.io/files/codes/zhen_genf_August2019.html"> file</a>.
 </li>
-<li> Maiti, T., Sinha, S. and Zhong, P-S. (2016). Functional mixed effects model for small area estimation. Scandinavian Journal of Statistics, 43, 886-903. \[[research/sjos2016_Maiti.pdf pdf]\]
-\[[research/sjos2016_Maiti_suppl.pdf Supplementary materials]\]
+<li> Maiti, T., Sinha, S. and Zhong, P-S. (2016). Functional mixed effects model for small area estimation. Scandinavian Journal of Statistics, 43, 886-903. <a href="http://samiransinha.github.io/files/[research/sjos2016_Maiti.pdf">Article</a>, 
+<a href="http://samiransinha.github.io/files/research/sjos2016_Maiti_suppl.pdf">Supplementary materials</a>
 </li>
 <li> Sinha, S. and Ma, Y. Analysis of proportional odds models with censoring and errors-in-covariates. Journal of the American Statistical Association. 111, 1301–1312. 
 \[[research/reviseround3pome6.pdf pdf]\]
@@ -84,11 +82,10 @@ Package Source: \[[codes/smmrbayes_1.0.tar.gz smmrbayes_1.0.tar.gz]\]
 Reference Manual: \[[research/SMMR_description_of_package.pdf  SMMR_description_of_package.pdf]\]
 </li>
 <li> Miao, J., Sinha, S., Wang, S., Diver, RW. and Gapstur, S. M. Analysis of multivariate disease classification 
-data in the presence of partially missing disease traits. Journal of 
- Biometrics and Biostatistics. \[[research/Miao_2014.pdf pdf]\] 
+data in the presence of partially missing disease traits. Journal of Biometrics and Biostatistics. <a href="https://doi.org/10.4172/2155-6180.1000197"> Article</a> 
 </li>
 <li> Sinha, S., Saha, S. K., and Wang, S. (2014). Semiparametric approach for non-monotone missing covariates in a parametric regression model. Biometrics, 70, 299-311. 
-\[[research/biometrics_2014_SinhaSahaWang.pdf pdf]\], \[[research/missing_biometrics_suppl.pdf Supplementary Materials]\]
+<a href="https://doi.org/10.1111/biom.12159">Article</a>, <a href="http://samiransinha.github.io/files/research/missing_biometrics_suppl.pdf">Supplementary materials</a>
 </li>
 <li> Sinha, S. and Ma, Y. (2014).  Semiparametric analysis of linear transformation models with covariate 
 measurement errors. Biometrics. <!--\[[research/LTM_ME_published_version.pdf pdf]\],-->
