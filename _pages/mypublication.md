@@ -56,11 +56,11 @@ This <a href="http://samiransinha.github.io/files/codes/MEtest_examples2019.html
 <a href="http://samiransinha.github.io/files/research/suppl_2019-May-07.pdf">Supplementary materials</a>, <a href="https://cran.r-project.org/web/packages/icemelt/index.html"> R package icemelt from CRAN</a>, 
 This <a href="http://samiransinha.github.io/files/codes/SIM_icemelt_examples2019.html"> file</a> contains illustrative examples on how to use the package for different scenarios. 
 </li>
-<li> Cook, S., Blas, B., Carroll, R. J., and Sinha, S. Two wrongs make a right: Addressing underreporting in binary data from multiple sources. Political Analysis. \[[research/Scott_paper1_2016.pdf pdf]\] </li>
-R package: \[[research/mistwosources_1.0.tar.gz Linux]\], \[[research/mistwosources_1.0.zip Windows]\], \[[research/mistwosources-manual.pdf Reference manual]\]
+<li> Cook, S., Blas, B., Carroll, R. J., and Sinha, S. Two wrongs make a right: Addressing underreporting in binary data from multiple sources. Political Analysis. 
+<a href="http://samiransinha.github.io/files/codes/mistwosources_1.0.tar.gz"> R package for Linux</a>, <a href="http://samiransinha.github.io/files/codes/mistwosources_1.0.zip">R package for Windows</a>, <a href="http://samiransinha.github.io/files/research/mistwosources-manual.pdf"> Reference manual</a>
 </li>
-<li> Lee, D., Carroll, R. J., and Sinha, S. Frequentist standard errors of Bayes estimators. Computational Statistics. \[[research/revision1_std_cal_the_revised_manuscript.pdf pdf]\]</li>
-Here is the code \[[research/Codes_Lee.zip R code in a zip file]\]
+<li> Lee, D., Carroll, R. J., and Sinha, S. Frequentist standard errors of Bayes estimators. Computational Statistics. <a href="http://samiransinha.github.io/files/research/revision1_std_cal_the_revised_manuscript.pdf">Article</a>, 
+<a href="http://samiransinha.github.io/files/codes/Codes_Lee.zip">R script</a>
 </li>
 <li> Zhang, Z., Sinha, S., Maiti, T., and Shipp, E. Bayesian variable selection in the AFT model with an application 
 to the SEER breast cancer data. Statistical Methods in Medical Research, 27, 971-990. \[[research/draft_seerdata_Dec_2015_rev2_sent2pub.pdf pdf]\], \[[research/suppl.pdf Supplementary Materials]\]</li> 
