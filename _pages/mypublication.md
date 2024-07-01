@@ -91,42 +91,43 @@ data in the presence of partially missing disease traits. Journal of
 \[[research/biometrics_2014_SinhaSahaWang.pdf pdf]\], \[[research/missing_biometrics_suppl.pdf Supplementary Materials]\]
 </li>
 <li> Sinha, S. and Ma, Y. (2014).  Semiparametric analysis of linear transformation models with covariate 
-measurement errors. Biometrics. \[[research/LTM_ME_published_version.pdf pdf]\],
- \[[research/LTMME_biometrics_suppl.pdf Supplementary Materials]\]</li>
+measurement errors. Biometrics. <!--\[[research/LTM_ME_published_version.pdf pdf]\],-->
+<a href="http://samiransinha.github.io/files/LTMME_biometrics_suppl.pdf">Supplementary materials</a>. 
 Package Source: \[[research/mesub_1.0.tar.gz mesub_1.0.tar.gz]\]
 Windows binary: \[[research/mesub_1.0.zip mesub_1.0.zip]\]
 Reference Manual: \[[research/manual_mesub.pdf  manual_mesub.pdf]\]
 </li>
 <li> Maiti, T., Ren, H., and Sinha, S. Prediction error of small area predictors with shrinking both 
-means and variances. Scandinavian Journal of Statistics. \[[research/sjos_Maiti_20131.pdf pdf]\], \[[research/sjos12061-sup-0001-Supp_Info.pdf  Supplementary Materials]\]
+means and variances. Scandinavian Journal of Statistics. <!--\[[research/sjos_Maiti_20131.pdf pdf]\], -->
+<a href="http://samiransinha.github.io/files/research/sjos12061-sup-0001-Supp_Info.pdf"> Supplementary materials</a>
 </li>
 <li> Sinha, S. and Yoo, S. (2012). Score tests in the presence of errors in covariates in matched 
 case-control studies. Journal of Multivariate Analysis. 
-\[[research/sinha2012-JMVA.pdf pdf]\] 
+<!--\[[research/sinha2012-JMVA.pdf pdf]\] -->
 </li>
 <li> Sinha, S. (2012). A functional method for conditional logistic regression 
 with errors-in-covariates. Journal of the Nonparametric Statistics. 
-\[[research/JNS2012.pdf pdf]\] 
+<!--\[[research/JNS2012.pdf pdf]\] -->
 </li>
 <li> Dass, S. C., Maiti, T., Ren, H., and Sinha, S. (2012). Confidence interval estimation of small 
 area parameters shrinking both means and variances. Survey Methodology. 
-\[[research/Survey_methodology_2012.pdf pdf]\]
+<!--\[[research/Survey_methodology_2012.pdf pdf]\]-->
 </li>
 <li> Kuskie, K. R., Smith, J. L., Sinha, S., Carter, C. N., Chaffin, M. K., Slovis, N. M., Brown, S. E., 
 Stepusin, R. S., Takai, S., Cohen, N. D. (2011). Associations between the exposure to airborne 
  virulent rhodococcus equi and the incidence of R equi pneumonia among individual foals. 
-Journal of Equine Veterinary Science. \[[research/Noah_2011.pdf pdf]\] 
+Journal of Equine Veterinary Science. <!--\[[research/Noah_2011.pdf pdf]\] -->
 </li>
 <li> Ahn, J., Mukherjee, B., Gruber, S. B., and Sinha, S. (2011). Missing exposure data in
  stereotype regression model: application to matched case-control study with disease 
-subclassification. Biometrics. \[[research/ahn2010-biometrics.pdf pdf]\]
+subclassification. Biometrics. <!--\[[research/ahn2010-biometrics.pdf pdf]\]-->
 </li>
 <li> Sinha, S. (2010). An estimated-score approach for dealing with missing covariate data in matched
- case-control studies. Canadian Journal of Statistics, 38, No 2. \[[research/sinha2010-cjs.pdf pdf]\]
+ case-control studies. Canadian Journal of Statistics, 38, No 2. <!--\[[research/sinha2010-cjs.pdf pdf]\]-->
 </li>
 <li> Osterstock, J., Sinha, S., Seabury, C.M., and Cohen, N. D. (2010). Effects of classifying disease states
  in genetic association studies for paratuborculosis. 
-Preventive Veterinary Medicine. \[[research/JOsterstock_PVM_2010.pdf pdf]\]
+Preventive Veterinary Medicine. <!--\[[research/JOsterstock_PVM_2010.pdf pdf]\]-->
 </li>
 <li> Chatterjee, N., Sinha, S., Diver, W. R., Feigelson, H. S. Analysis of cohort studies with multivariate, 
 partially observed disease classification data. Biometrika.  <!--\[[research/SurvClassificationChatterjeeRevised2-Jan06-2010.pdf pdf]\]-->
