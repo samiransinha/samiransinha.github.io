@@ -199,7 +199,7 @@ Book Chapters
 <li> Sinha, S. (2021). Bayesian approaches for handling covariate measurement error.
  Handbook of Measurement Error Models Edited by Grace Yi, Aurore Delaigle and Paul Gustafson (Chapman & Hall/CRC Press), eBook ISBN 9781315101279. 
 </li>
-<li> Sinha, S. (2007), Bayesian methods for case-control studies: Annotated bibliography. ISBA Bulletin, 16, 5-8. Complete bulletin. \[[research/ISBA_bulletin0706.pdf pdf]\]
+<li> Sinha, S. (2007), Bayesian methods for case-control studies: Annotated bibliography. ISBA Bulletin, 16, 5-8. Complete bulletin. url: /files/research/ISBA_bulletin0706.pdf     \[[research/ISBA_bulletin0706.pdf pdf]\]
 </li>
 <li> Mukherjee, B., Sinha, S.,  and Ghosh, M. (2005). Bayesian
 analysis for  case-control studies. Handbook of Statistics, 25, 793--819.
