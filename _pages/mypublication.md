@@ -183,11 +183,11 @@ Here is the  \[[codes/rcode1 R-code]\]
 <li> Sinha, S., Mukherjee, B., Ghosh, M., Mallick, B. K., Carroll, R. J.  (2005). Semiparametric Bayesian 
 analysis of matched case-control studies with missing exposure. 
 Journal of the American Statistical Association, 100, 591--601. #\[[research/sinha_jasa2005.pdf pdf]\] 
-Here is the code in a  \[[codes/software_matched_missing.zip zipped folder]\]
+Here is the code <a href="http://samiransinha.github.io/files/codes/software_matched_missing.zip zipped folder">code</a>.
 </li>
  <li> Sinha, S., Mukherjee, B., and Ghosh, M. (2004). Bayesian semiparametric modeling for 
 matched case-control studies with multiple disease states. Biometrics, 60, 
-41–49. #\[[research/sinha_biometrics2004.pdf pdf]\]
+41–49. <!--\[[research/sinha_biometrics2004.pdf pdf]\]-->
 </li>
 </ol>
 
