@@ -136,19 +136,18 @@ Windows binary: EE_0.0.1.zip
 </li>
 <li> Sinha, S., Mallick, B. K., Kipnis, V., and Carroll, R. J.  Semiparametric Bayesian 
 analysis of nutritional epidemiology data in the presence of measurement 
-error. Biometrics. \[[research/MEwithRay2009-Biometrics.pdf pdf]\]
-Here is the code: 
-\[[codes/semipara-merror/readme.txt Readme.txt]\],
-\[[codes/semipara-merror/program-spb.txt R-code]\],
-\[[codes/semipara-merror/spbsubroutines.f Fortran-subroutine]\]
+error. Biometrics. <!--\[[research/MEwithRay2009-Biometrics.pdf pdf]\]-->
+Here is the code: <a href="http://samiransinha.github.io/files/codes/semipara-merror/readme.txt">Readme</a>, 
+<a href="http://samiransinha.github.io/files/codes/semipara-merror/program-spb.txt"> R script</a>,
+<a href="http://samiransinha.github.io/files/codes/semipara-merror/spbsubroutines.f">Fortran-subroutine</a>.
 </li>
 <li> Sun, J., Sinha, S., Wang, S., and Maiti, T. Bias corrected inference for the conditional 
 logistic regression. Statistics in Medicine. \[[research/Sun_SIM.pdf pdf]\] 
-Here is the code for bias corrected estimator. \[[codes/Bias-Correction/readme.txt Readme.txt]\], \[[codes/Bias-Correction/MDS.txt R-code]\] 
+Here is the code for bias corrected estimator, <a href="http://samiransinha.github.io/files/codes/Bias-Correction/readme.txt">Readme</a>, <a href="http://samiransinha.github.io/files/codes/Bias-Correction/MDS.txt">R script</a>. 
 </li>
 <li> Sinha, S., and Wang, S. (2009). A new semiparametric procedure for matched case-control 
 studies with missing covariates.  Journal of Nonparametric Statistics. 
-\[[research/sinha_wang.pdf pdf]\]
+<!--\[[research/sinha_wang.pdf pdf]\]-->
 </li>
 <li> Sinha, S., Gruber, S. B., Mukherjee, B., and  Rennert, G. (2008). Inference of
 haplotype effects in matched case-control studies using unphased genotype 
