@@ -72,14 +72,12 @@ this <a href="http://samiransinha.github.io/files/codes/zhen_genf_August2019.htm
 <a href="http://samiransinha.github.io/files/research/sjos2016_Maiti_suppl.pdf">Supplementary materials</a>
 </li>
 <li> Sinha, S. and Ma, Y. Analysis of proportional odds models with censoring and errors-in-covariates. Journal of the American Statistical Association. 111, 1301–1312. 
-\[[research/reviseround3pome6.pdf pdf]\]
-\[[research/jasa_suppl6.pdf Supplementary materials]\]
+<a href="http://samiransinha.github.io/files/research/reviseround3pome6.pdf">Article</a>, <a href="http://samiransinha.github.io/files/research/jasa_suppl6.pdf">Supplementary materials</a>
 </li>
 <li> Sinha, S. and Wang, S. Semiparametric Bayesian analysis of censored linear regression with 
 errors-in-covariates. Statistical Methods in Medical Research, 26, 1389–1415. 
-\[[research/SMMR_2015_Final_version.pdf pdf]\]</li>
-Package Source: \[[codes/smmrbayes_1.0.tar.gz smmrbayes_1.0.tar.gz]\]
-Reference Manual: \[[research/SMMR_description_of_package.pdf  SMMR_description_of_package.pdf]\]
+<a href="http://samiransinha.github.io/files/research/SMMR_2015_Final_version.pdf"> Article</a>, <a href="http://samiransinha.github.io/files/codes/smmrbayes_1.0.tar.gz">R package</a>, 
+<a href="http://samiransinha.github.io/files/research/SMMR_description_of_package.pdf"> Reference manual</a>
 </li>
 <li> Miao, J., Sinha, S., Wang, S., Diver, RW. and Gapstur, S. M. Analysis of multivariate disease classification 
 data in the presence of partially missing disease traits. Journal of Biometrics and Biostatistics. <a href="https://doi.org/10.4172/2155-6180.1000197"> Article</a> 
