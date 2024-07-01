@@ -157,8 +157,8 @@ Here is the code <a href="http://samiransinha.github.io/files/codes/Readme.txt">
 <a href="http://samiransinha.github.io/files/codes/Hap.R">R script</a>, <a href="http://samiransinha.github.io/files/codes/new-hapdataanalysissub1.f">Fortran subroutines</a>.
 </li>
 <li> Sinha, S., Mukherjee, B., and Ghosh, M.
-(2007),  Modelling Association Among Bivariate Exposures In
-Matched Case-Control Studies. Sankhya, 69, 379–404. <!--\[[research/sankhya.pdf pdf]\]-->
+(2007),  Modelling association among bivariate exposures in
+matched case-control studies. Sankhya, 69, 379–404. <!--\[[research/sankhya.pdf pdf]\]-->
 </li>
 <li> Sinha, S. and Maiti, T. (2007). Analysis of matched
 case-control data in presence of nonignorable missing data. 
