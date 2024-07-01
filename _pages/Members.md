@@ -15,15 +15,6 @@ redirect_from:
 <img src="http://samiransinha.github.io/images/students/Wesley_picture.jpg" align="left" width="200px"/>
 some text floating around the image
 
-<div style="clear: both;">
-  <div style="float: left; margin-right 1em;">
-    <img src="http://samiransinha.github.io/images/students/Wesley_picture.jpg" alt="" width="325/">
-  </div>
-  <div>
-    <h2>Some title text</h2>
-    <p>Some more text that will appear to the left of the image.</p>
-  </div>
-</div>
 
 
 <!--<a href="http://samiransinha.github.io/images/students/Wesley_picture.jpg">Wesley Fletcher</a>.-->
