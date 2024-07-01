@@ -86,11 +86,9 @@ data in the presence of partially missing disease traits. Journal of Biometrics 
 <a href="https://doi.org/10.1111/biom.12159">Article</a>, <a href="http://samiransinha.github.io/files/research/missing_biometrics_suppl.pdf">Supplementary materials</a>
 </li>
 <li> Sinha, S. and Ma, Y. (2014).  Semiparametric analysis of linear transformation models with covariate 
-measurement errors. Biometrics. <!--\[[research/LTM_ME_published_version.pdf pdf]\],-->
-<a href="http://samiransinha.github.io/files/LTMME_biometrics_suppl.pdf">Supplementary materials</a>. 
-Package Source: \[[research/mesub_1.0.tar.gz mesub_1.0.tar.gz]\]
-Windows binary: \[[research/mesub_1.0.zip mesub_1.0.zip]\]
-Reference Manual: \[[research/manual_mesub.pdf  manual_mesub.pdf]\]
+measurement errors. Biometrics. <a href="https://doi.org/10.1111%2Fbiom.12119"> Article</a>, <!--\[[research/LTM_ME_published_version.pdf pdf]\],-->
+<a href="http://samiransinha.github.io/files/LTMME_biometrics_suppl.pdf">Supplementary materials</a>, <a href="http://samiransinha.github.io/files/codes/mesub_1.0.tar.gz"> Source code for the R package</a>, <a href="http://samiransinha.github.io/files/codes/mesub_1.0.zip"> Windows binary for the R package</a>,
+<a href="http://samiransinha.github.io/files/research/manual_mesub.pdf"> Reference manual</a>
 </li>
 <li> Maiti, T., Ren, H., and Sinha, S. Prediction error of small area predictors with shrinking both 
 means and variances. Scandinavian Journal of Statistics. <!--\[[research/sjos_Maiti_20131.pdf pdf]\], -->
