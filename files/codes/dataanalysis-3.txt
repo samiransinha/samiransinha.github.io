@@ -1,0 +1,142 @@
+# this file contains three methods  of analysis: 1) the method proposed in Paik (2004),
+# 2) ordinary CLR ignoring the  subjects with missing X, and 3) the proposed method
+# To run this code one first need to compile the Fortran program data_simusub.f 
+# using the command 
+# >f77 -02 -c  data_simusub.f  
+#in unix station, and then load the
+# subprogram in the shared library of R using the command
+# >R CMD SHLIB data_simusub.o
+# 
+library(survival)
+dyn.load("data_simusub.so")
+a=read.table("LAcancer.txt")
+age=(a[, 3]-min(a[, 3]))/(max(a[, 3])-min(a[, 3]))# matching variable
+# the 6th col of a represents the exposure variable which has missing values.
+# the missing values are denoted by 9.
+# the 4th col represents the exposure variable which is always observed.
+matchcc=data.frame(a[, 2], age, a[, 4], a[, 6])
+r=rep(0, 315)
+a6=a[, 6]
+r[a6!=9]<-1
+ik=rep(0, 5)
+ncase=63; # this represents the number of matched sets.
+indx=NULL
+
+for( i in 1: ncase){
+vec=NULL
+for( l in 1: 5){
+ik[l]=5*(i-1)+l
+if(r[ik[l]]==0) vec=c(vec, ik[l])
+}
+
+if((r[ik[1]]==0) ||(sum(r[ik[1]:ik[5]])==0)) {indx=c(indx, ik[1], ik[2], ik[3], ik[4], ik[5])} else {indx=c(indx, vec)}
+}
+orgmatchcc=cbind(matchcc, r)
+paikbeta=NULL
+matchcc=orgmatchcc
+matchcc=as.matrix(matchcc)
+
+storage.mode(matchcc)<-"double"
+nr=nrow(matchcc); nc=ncol(matchcc)
+ndthet=9; theta=rep(0.001, ndthet); theta_old=theta;
+lglk=0; lglk=as.double(lglk);
+#####theta_x is fixed to certain values
+h=function(theta) {
+fn1=.Fortran("newpaikstage1", matchcc, nrow=as.integer(nr), 
+ ncol=as.integer(nc), theta=as.double(theta), 
+ theta_old=as.double(theta_old), ndthet=as.integer(ndthet), output=lglk)
+#theta=c(delta0, deltad, deltas, deltax, deltaz, gamma0, gammad, gammas, gammaz) 
+-fn1$output
+}
+
+eps=1.0
+while(eps>0.01){
+theta=theta_old
+out=nlm(h, theta)
+theta_old=out$estimate
+print(theta_old)
+out$minimum
+eps=sum(abs((theta-theta_old)/theta))
+}
+theta=theta_old
+###############################################
+##### Capital phi
+term1=theta[1]+theta[2]+theta[3]*matchcc[, 2]+
+theta[4]*matchcc[, 4]+theta[5]*matchcc[, 3] 
+term0=theta[1]+theta[3]*matchcc[, 2]+
+theta[4]*matchcc[, 4]+theta[5]*matchcc[, 3] 
+capphi=log(exp(term1)/(1+exp(term1)))-log(exp(term0)/(1+exp(term0)))
+########## Small phi
+q1=theta[1]+theta[2]+theta[3]*matchcc[, 2]+
+theta[4]+theta[5]*matchcc[, 3]
+q0=theta[1]+theta[2]+theta[3]*matchcc[, 2]+theta[5]*matchcc[, 3]
+qx=theta[6]+theta[7]+theta[8]*matchcc[, 2]+theta[9]*matchcc[, 3]
+
+newq1=theta[1]+theta[3]*matchcc[, 2]+
+theta[4]+theta[5]*matchcc[, 3]
+newq0=theta[1]+theta[3]*matchcc[, 2]+theta[5]*matchcc[, 3]
+newqx=theta[6]+theta[8]*matchcc[, 2]+theta[9]*matchcc[, 3]
+
+
+smallphi=log(exp(qx)/((1+exp(q1))*(1+exp(qx)))+1/
+((1+exp(q0))*(1+exp(qx))))-log(exp(newqx)/((1+exp(newq1))*
+(1+exp(newqx))) +1/((1+exp(newq0))*(1+exp(newqx))))
+
+
+offset=matchcc[, 5]*capphi+(1-matchcc[, 5])*smallphi
+xstar=(log(1+exp(theta[6]+theta[7]+theta[8]*matchcc[,2]+
+theta[9]*matchcc[, 3]))- log(1+exp(theta[6]+theta[8]*matchcc[,2]+
+theta[9]*matchcc[, 3])))/theta[6]
+xhat=matchcc[, 4]*matchcc[, 5]+(1-matchcc[, 5])*xstar
+
+
+fn2=function(beta){
+qn=beta[1]*matchcc[, 3]+beta[2]*xhat+offset
+qn1=qn[seq(1, 315, 5)]#qn1=qn[seq(1, 315, 5)]
+qn2=exp(qn[seq(1, 315, 5)])+exp(qn[seq(2, 315, 5)])+
+exp(qn[seq(3, 315, 5)])+exp(qn[seq(4, 315, 5)])+exp(qn[seq(5, 315, 5)])
+-sum(qn1)+sum(log(qn2))
+}
+beta=rep(0.001, 2)
+out=nlm(fn2, beta)
+beta=out$estimate
+print(beta)
+#paikbeta=rbind(paikbeta, beta)}
+
+# Missing data CLR
+newmatchcc=matchcc[-indx,]
+y1=newmatchcc[,1]
+st=NULL
+k=0
+for( i in 1: length(y1))
+{
+if(y1[i]!=0) {k=k+1; st=c(st,k)} else {st=c(st, k)}
+}
+s=clogit(newmatchcc[, 1]~newmatchcc[, 3]+newmatchcc[, 4]+strata(st))
+betam=s$coefficients#)
+}
+
+
+###################### End of Paik's method
+# Following is the proposed method which is described in Sinha and Maiti (2007), abbreviated as SM
+smfn=function(alpha){
+hn3=.Fortran("newsm", matchcc, nrow=as.integer(nr), ncol=as.integer(nc), 
+ alpha=as.double(alpha), alpha_old=as.double(alpha_old), 
+  ndalpa=as.integer(ndalpa),output=lglk)
+-hn3$output
+}
+ndalpa=10
+alpha_old=rep(0.01, ndalpa);
+eps=1.
+while(eps>0.01){
+ alpha=alpha_old 
+outsm=nlm(smfn, alpha)
+alpha_old=outsm$estimate
+eps=sum(abs((alpha-alpha_old)/alpha))
+print(alpha_old)
+}
+betamatsm=rbind(betamatsm, alpha[9:10])
+# End of SM
+
+
+

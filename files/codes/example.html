@@ -1,0 +1,402 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   <!--
+This HTML was auto-generated from MATLAB code.
+To make changes, update the MATLAB code and republish this document.
+      --><title>example</title><meta name="generator" content="MATLAB 8.6"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2016-02-09"><meta name="DC.source" content="example.m"><style type="text/css">
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
+
+html { min-height:100%; margin-bottom:1px; }
+html body { height:100%; margin:0px; font-family:Arial, Helvetica, sans-serif; font-size:10px; color:#000; line-height:140%; background:#fff none; overflow-y:scroll; }
+html body td { vertical-align:top; text-align:left; }
+
+h1 { padding:0px; margin:0px 0px 25px; font-family:Arial, Helvetica, sans-serif; font-size:1.5em; color:#d55000; line-height:100%; font-weight:normal; }
+h2 { padding:0px; margin:0px 0px 8px; font-family:Arial, Helvetica, sans-serif; font-size:1.2em; color:#000; font-weight:bold; line-height:140%; border-bottom:1px solid #d6d4d4; display:block; }
+h3 { padding:0px; margin:0px 0px 5px; font-family:Arial, Helvetica, sans-serif; font-size:1.1em; color:#000; font-weight:bold; line-height:140%; }
+
+a { color:#005fce; text-decoration:none; }
+a:hover { color:#005fce; text-decoration:underline; }
+a:visited { color:#004aa0; text-decoration:none; }
+
+p { padding:0px; margin:0px 0px 20px; }
+img { padding:0px; margin:0px 0px 20px; border:none; }
+p img, pre img, tt img, li img, h1 img, h2 img { margin-bottom:0px; } 
+
+ul { padding:0px; margin:0px 0px 20px 23px; list-style:square; }
+ul li { padding:0px; margin:0px 0px 7px 0px; }
+ul li ul { padding:5px 0px 0px; margin:0px 0px 7px 23px; }
+ul li ol li { list-style:decimal; }
+ol { padding:0px; margin:0px 0px 20px 0px; list-style:decimal; }
+ol li { padding:0px; margin:0px 0px 7px 23px; list-style-type:decimal; }
+ol li ol { padding:5px 0px 0px; margin:0px 0px 7px 0px; }
+ol li ol li { list-style-type:lower-alpha; }
+ol li ul { padding-top:7px; }
+ol li ul li { list-style:square; }
+
+.content { font-size:1.2em; line-height:140%; padding: 20px; }
+
+pre, code { font-size:14px; }
+tt { font-size: 1.2em; }
+pre { margin:0px 0px 20px; }
+pre.codeinput { padding:10px; border:1px solid #d3d3d3; background:#f7f7f7; }
+pre.codeoutput { padding:10px 11px; margin:0px 0px 20px; color:#4c4c4c; }
+pre.error { color:red; }
+
+@media print { pre.codeinput, pre.codeoutput { word-wrap:break-word; width:100%; } }
+
+span.keyword { color:#0000FF }
+span.comment { color:#228B22 }
+span.string { color:#A020F0 }
+span.untermstring { color:#B20000 }
+span.syscmd { color:#B28C00 }
+
+.footer { width:auto; padding:10px 0px; margin:25px 0px 0px; border-top:1px dotted #878787; font-size:0.8em; line-height:140%; font-style:italic; color:#878787; text-align:left; float:none; }
+.footer p { margin:0px; }
+.footer a { color:#878787; }
+.footer a:hover { color:#878787; text-decoration:underline; }
+.footer a:visited { color:#878787; }
+
+table th { padding:7px 5px; text-align:left; vertical-align:middle; border: 1px solid #d6d4d4; font-weight:bold; }
+table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px solid #d6d4d4; }
+
+
+
+
+
+  </style></head><body><div class="content"><pre class="codeinput"><span class="comment">% An example for the Bayesian variable selection method in AFT model for survival data,</span>
+<span class="comment">% developed in Zhang, Z., Sinha, S., Maiti, T., and Shipp, E. (2016). Bayesian variable selection</span>
+<span class="comment">% in the AFT model with an application to the SEER breast cancer data. To appear in the</span>
+<span class="comment">% Statistical Methods in Medical Research.  The proposed method handles the case where the number of</span>
+<span class="comment">% parameters is fixed and is smaller than the sample size n.</span>
+<span class="comment">% Please contact the authors if there are any questions or implementation issues:</span>
+<span class="comment">%    Zhen Zhang, zhangz19@galton.uchicago.edu</span>
+<span class="comment">%</span>
+<span class="comment">%</span>
+<span class="comment">%</span>
+<span class="comment">%</span>
+<span class="comment">%</span>
+<span class="comment">% In this file we illustrate how to use the main Matlab function AFT_Bayes_LASSO.</span>
+<span class="comment">%</span>
+<span class="comment">%</span>
+<span class="comment">%======== The input variables of this function are</span>
+<span class="comment">% V: observed time to event, in terms of notation, V=min(T, C), where T and C are time-to-event and the censoring</span>
+<span class="comment">%                   time, respectively.</span>
+<span class="comment">% Delta: binary vector indicating if an observation is not censored, i.e. Delta = (T&lt;=C);</span>
+<span class="comment">% Z: n ny q design matrix with q candidate variables</span>
+<span class="comment">% N: truncated maximal number of clusters for Dirichlet Process prior</span>
+<span class="comment">% tot: number of total iterations per MCMC run</span>
+<span class="comment">% burn: number of iterations as burn-in time</span>
+<span class="comment">% init_beta: q by 1 initial value of the Beta-parameter, can be obtained</span>
+<span class="comment">%        from parametric AFT (see R package flexsurv)</span>
+<span class="comment">% randomSeed: a single number for the seed of random number generator</span>
+<span class="comment">%</span>
+<span class="comment">%</span>
+<span class="comment">%</span>
+<span class="comment">%======== The output variables of this function are</span>
+<span class="comment">% matpara: a matrix with K ( = tot-burn) rows that records MCMC samples in the order of:</span>
+<span class="comment">%    -- q columns: Beta-parameter for the slopes of the q candidate variables</span>
+<span class="comment">%    -- q columns: u-parameter for the precision of the q candidate variables</span>
+<span class="comment">%    -- 1 column: lambda-parameter for the LASSO penalty</span>
+<span class="comment">%    -- ngammas columns: gamma-parameter for the variance modeling.</span>
+<span class="comment">%                  Default ngammas = 2 for quadratic function</span>
+<span class="comment">%    -- 2 columns: alpha and zeta parameter in the paper</span>
+<span class="comment">% Theta: K by 2*N matrix that records mean \theta_1 (first N</span>
+<span class="comment">%          columns) and variance \theta_2 (last N columns) for the N clusters</span>
+<span class="comment">% Ps: K by N matrix that records probability of each DP cluster</span>
+
+id = 1; <span class="comment">% Indexing different replicates of simulated data</span>
+rng(<span class="string">'default'</span>); rng(8*id)
+
+<span class="comment">% Simulate data with scaled log-Weibull distributed error.</span>
+<span class="comment">% Similar to scenario 1 in Zhang et al. (2016). See the article for details</span>
+n = 5e3;
+q = 10;
+p = 4;
+inds = 1:p;
+betas = zeros(q,1); betas(inds) = [0.5, 0.5, 0.35, -0.35]';
+Z = binornd(1, 0.5, [n,q]);
+mu = Z*betas;
+labs = ones(1,n);
+lambda0 = 29.2672; k0 = 0.8178; C0 = 1.57;
+eps = log(wblrnd(lambda0, k0,[n,1]))/C0;
+eps = exp(-0.5*mu.^2).*eps;
+K = 78;
+T = exp(1 + mu + eps);
+C = Z(:,1) + Z(:,2) + unifrnd(0,K,[n,1]);
+V = min(T,C);
+Delta = (T&lt;=C);
+fprintf(<span class="string">'The proportion of non-censoring: %3.4f\n'</span>, mean(Delta))
+
+<span class="comment">% check the empirical survival rates for some example groups</span>
+n0 = 4;
+Z0 = zeros(n0, q);
+Z0(1, 1:p) = [1,1,1,0]; <span class="comment">% survival group with the highest survival rate</span>
+Z0(2, 1:p) = [1,0,1,1]; <span class="comment">% survival group with an intermediate survival rate</span>
+Z0(3, 1:p) = [1,1,1,1]; <span class="comment">% survival group with an intermediate survival rate</span>
+Z0(4, 1:p) = [0,0,0,1]; <span class="comment">% survival group with the worst survival rate</span>
+
+t0 = 0:0.2:60; len = numel(t0); trueY = zeros(len, n0);
+<span class="keyword">for</span> i = 1:n0
+    trueMu = Z0(i,:)*betas;
+    x = exp(0.5*trueMu^2)*(log(t0)-1-trueMu);
+    trueY(:,i) = exp(- (exp(C0*x)/lambda0).^k0);
+<span class="keyword">end</span>
+Trues.eps = eps; Trues.T = T; Trues.C = C;
+Trues.beta = betas; Trues.inds = inds;
+Trues.labs = labs;
+
+<span class="comment">% store results</span>
+tot = 200; burn = 100; <span class="comment">% for pilot run</span>
+<span class="comment">% %========== in practice, need to modify total number of iterations per chain, and burn-in period</span>
+<span class="comment">% tot = 2e4; burn = 15e3;</span>
+
+N =150; <span class="comment">%modify the truncated maximal number of clusters for Dirichlet Process prior</span>
+nch = 3; <span class="comment">% number of MCMC chains</span>
+myseeds = [1,2,3]; <span class="comment">%set seeds for random number generator for each chain</span>
+ngammas = 2;
+niter = tot-burn;
+nsample = niter*nch;
+matpara = zeros(nsample, q*2+1+ngammas+1 + 1);
+Ps = zeros(nsample, N);
+Theta = zeros(nsample, N*2);
+initBetas = Trues.beta;
+
+<span class="comment">% run MCMC chains, may be time-consuming with supplied "tot" values.</span>
+<span class="keyword">for</span> ch = 1:nch
+    i0 = (ch-1)*niter + (1:niter);
+    fprintf(<span class="string">'\nMCMC chain %d: '</span>,ch)
+    [matpara(i0,:), Theta(i0,:), Ps(i0,:)] = AFT_Bayes_LASSO(V, Delta, Z, N, tot, burn, initBetas, myseeds(ch));
+<span class="keyword">end</span>
+
+<span class="comment">% check beta-parameter coverage</span>
+betaSamples = matpara(:, 1:q)';
+lb = quantile(betaSamples,0.025,2); ub = quantile(betaSamples,0.975,2);
+fprintf(<span class="string">'\nTrue, posterior mean, lower and upper bound of 95%% credible interval, coverage of the true:\n'</span>)
+disp(num2str([Trues.beta,mean(betaSamples,2), lb, ub, (lb&lt;Trues.beta).*(ub&gt;Trues.beta)==1], 3))
+
+<span class="comment">% check survival probability</span>
+mu0 = Z0*betaSamples;
+nu0 = zeros(n0, nsample);
+spm = nan(len, n0); spl = nan(len, n0); spu = nan(len, n0);
+fprintf(<span class="string">'\nThe design matrix for some example groups for survival probability:\n'</span>)
+disp(Z0)
+
+<span class="keyword">for</span> i = 1:n0
+    <span class="keyword">for</span> j = 1:nsample
+        nu0(i, j) = exp( [mu0(i,j), mu0(i,j).^2]*matpara(j, (2*q+1)+(1:ngammas))' );
+    <span class="keyword">end</span>
+    <span class="keyword">for</span> t = 1:len
+        t1 = t0(t);
+        tmp = 1 - sum(Ps.*normcdf(<span class="keyword">...</span>
+            ( repmat( ((log(t1) - mu0(i,:))./sqrt(nu0(i,:)))', [1,N]) - Theta(:,1:N) )./sqrt(Theta(:,N+(1:N)))<span class="keyword">...</span>
+            ), 2);
+        spm(t, i) = mean(tmp);  spl(t, i) = quantile(tmp, .025); spu(t, i) = quantile(tmp, .975);
+    <span class="keyword">end</span>
+
+    <span class="comment">% Plot the true, empirical, and estimated survival probability</span>
+    subplot(2,2,i); plot(t0, trueY(:,i), <span class="string">'r-'</span>)
+    xlim([Z0(i,:)*betas+1, 60])
+    hold <span class="string">on</span>,
+    <span class="keyword">for</span> j = t0
+        plot(j, mean(V(~( sum((Z(:,1:p) - repmat(Z0(i,1:p), [n,1])).^2, 2) ))&gt;=j), <span class="string">'k.'</span>)
+    <span class="keyword">end</span>
+    plot(t0, spm(:,i), <span class="string">'b-'</span>)
+    plot(t0, spl(:,i), <span class="string">'b--'</span>)
+    plot(t0, spu(:,i), <span class="string">'b--'</span>)
+    hold <span class="string">off</span>
+<span class="keyword">end</span>
+
+<span class="comment">% % save the figure</span>
+<span class="comment">% fac = .8;</span>
+<span class="comment">% set(gcf, 'PaperPosition', [0 0 4 4]/fac);</span>
+<span class="comment">% set(gcf, 'PaperSize', [4 4]/fac);</span>
+<span class="comment">% set(gca,'FontSize',12)</span>
+<span class="comment">% saveas(gcf, strcat('./','fig',num2str(id)), 'pdf')</span>
+
+disp(<span class="string">'Demo completed. For full results, need to increase tot for achieving reasonable mixing rates and convergence'</span>)
+</pre><pre class="codeoutput">The proportion of non-censoring: 0.7090
+
+MCMC chain 1: 200 iterations are done with elapsed time 0.14 minutes.
+
+MCMC chain 2: 200 iterations are done with elapsed time 0.14 minutes.
+
+MCMC chain 3: 200 iterations are done with elapsed time 0.13 minutes.
+
+True, posterior mean, lower and upper bound of 95% credible interval, coverage of the true:
+  0.5     0.499     0.494     0.503         1
+  0.5     0.499     0.494     0.503         1
+ 0.35     0.349     0.342     0.356         1
+-0.35    -0.352    -0.357    -0.347         1
+    0   0.00363  -0.00462    0.0115         1
+    0 -0.000818  -0.00794    0.0036         1
+    0  -0.00223  -0.00764   0.00244         1
+    0 -0.000749  -0.00521    0.0048         1
+    0  -0.00105  -0.00609   0.00368         1
+    0    0.0019  -0.00144   0.00574         1
+
+The design matrix for some example groups for survival probability:
+     1     1     1     0     0     0     0     0     0     0
+     1     0     1     1     0     0     0     0     0     0
+     1     1     1     1     0     0     0     0     0     0
+     0     0     0     1     0     0     0     0     0     0
+
+Demo completed. For full results, need to increase tot for achieving reasonable mixing rates and convergence
+</pre><img vspace="5" hspace="5" src="example_01.png" alt=""> <p class="footer"><br><a href="http://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2015b</a><br></p></div><!--
+##### SOURCE BEGIN #####
+% An example for the Bayesian variable selection method in AFT model for survival data,  
+% developed in Zhang, Z., Sinha, S., Maiti, T., and Shipp, E. (2016). Bayesian variable selection  
+% in the AFT model with an application to the SEER breast cancer data. To appear in the  
+% Statistical Methods in Medical Research.  The proposed method handles the case where the number of 
+% parameters is fixed and is smaller than the sample size n.     
+% Please contact the authors if there are any questions or implementation issues:  
+%    Zhen Zhang, zhangz19@galton.uchicago.edu
+%
+%
+%
+%
+%
+% In this file we illustrate how to use the main Matlab function AFT_Bayes_LASSO.
+%
+%
+%======== The input variables of this function are 
+% V: observed time to event, in terms of notation, V=min(T, C), where T and C are time-to-event and the censoring
+%                   time, respectively.
+% Delta: binary vector indicating if an observation is not censored, i.e. Delta = (T<=C);
+% Z: n ny q design matrix with q candidate variables
+% N: truncated maximal number of clusters for Dirichlet Process prior
+% tot: number of total iterations per MCMC run
+% burn: number of iterations as burn-in time
+% init_beta: q by 1 initial value of the Beta-parameter, can be obtained
+%        from parametric AFT (see R package flexsurv)
+% randomSeed: a single number for the seed of random number generator
+%
+%
+%
+%======== The output variables of this function are 
+% matpara: a matrix with K ( = tot-burn) rows that records MCMC samples in the order of:
+%    REPLACE_WITH_DASH_DASH q columns: Beta-parameter for the slopes of the q candidate variables
+%    REPLACE_WITH_DASH_DASH q columns: u-parameter for the precision of the q candidate variables
+%    REPLACE_WITH_DASH_DASH 1 column: lambda-parameter for the LASSO penalty
+%    REPLACE_WITH_DASH_DASH ngammas columns: gamma-parameter for the variance modeling.
+%                  Default ngammas = 2 for quadratic function
+%    REPLACE_WITH_DASH_DASH 2 columns: alpha and zeta parameter in the paper
+% Theta: K by 2*N matrix that records mean \theta_1 (first N
+%          columns) and variance \theta_2 (last N columns) for the N clusters
+% Ps: K by N matrix that records probability of each DP cluster
+
+id = 1; % Indexing different replicates of simulated data
+rng('default'); rng(8*id)
+
+% Simulate data with scaled log-Weibull distributed error. 
+% Similar to scenario 1 in Zhang et al. (2016). See the article for details
+n = 5e3;
+q = 10;
+p = 4; 
+inds = 1:p;
+betas = zeros(q,1); betas(inds) = [0.5, 0.5, 0.35, -0.35]';
+Z = binornd(1, 0.5, [n,q]);
+mu = Z*betas;
+labs = ones(1,n);
+lambda0 = 29.2672; k0 = 0.8178; C0 = 1.57;
+eps = log(wblrnd(lambda0, k0,[n,1]))/C0;
+eps = exp(-0.5*mu.^2).*eps;
+K = 78;
+T = exp(1 + mu + eps);
+C = Z(:,1) + Z(:,2) + unifrnd(0,K,[n,1]);
+V = min(T,C);
+Delta = (T<=C);
+fprintf('The proportion of non-censoring: %3.4f\n', mean(Delta))
+
+% check the empirical survival rates for some example groups
+n0 = 4;
+Z0 = zeros(n0, q); 
+Z0(1, 1:p) = [1,1,1,0]; % survival group with the highest survival rate
+Z0(2, 1:p) = [1,0,1,1]; % survival group with an intermediate survival rate
+Z0(3, 1:p) = [1,1,1,1]; % survival group with an intermediate survival rate
+Z0(4, 1:p) = [0,0,0,1]; % survival group with the worst survival rate
+
+t0 = 0:0.2:60; len = numel(t0); trueY = zeros(len, n0);
+for i = 1:n0
+    trueMu = Z0(i,:)*betas;
+    x = exp(0.5*trueMu^2)*(log(t0)-1-trueMu); 
+    trueY(:,i) = exp(- (exp(C0*x)/lambda0).^k0);
+end
+Trues.eps = eps; Trues.T = T; Trues.C = C;
+Trues.beta = betas; Trues.inds = inds;
+Trues.labs = labs;
+
+% store results
+tot = 200; burn = 100; % for pilot run
+% %========== in practice, need to modify total number of iterations per chain, and burn-in period
+% tot = 2e4; burn = 15e3; 
+
+N =150; %modify the truncated maximal number of clusters for Dirichlet Process prior 
+nch = 3; % number of MCMC chains
+myseeds = [1,2,3]; %set seeds for random number generator for each chain
+ngammas = 2; 
+niter = tot-burn; 
+nsample = niter*nch; 
+matpara = zeros(nsample, q*2+1+ngammas+1 + 1);
+Ps = zeros(nsample, N);
+Theta = zeros(nsample, N*2);
+initBetas = Trues.beta; 
+
+% run MCMC chains, may be time-consuming with supplied "tot" values.
+for ch = 1:nch
+    i0 = (ch-1)*niter + (1:niter); 
+    fprintf('\nMCMC chain %d: ',ch)
+    [matpara(i0,:), Theta(i0,:), Ps(i0,:)] = AFT_Bayes_LASSO(V, Delta, Z, N, tot, burn, initBetas, myseeds(ch)); 
+end
+
+% check beta-parameter coverage
+betaSamples = matpara(:, 1:q)'; 
+lb = quantile(betaSamples,0.025,2); ub = quantile(betaSamples,0.975,2); 
+fprintf('\nTrue, posterior mean, lower and upper bound of 95%% credible interval, coverage of the true:\n')
+disp(num2str([Trues.beta,mean(betaSamples,2), lb, ub, (lb<Trues.beta).*(ub>Trues.beta)==1], 3))
+
+% check survival probability
+mu0 = Z0*betaSamples;
+nu0 = zeros(n0, nsample);
+spm = nan(len, n0); spl = nan(len, n0); spu = nan(len, n0);
+fprintf('\nThe design matrix for some example groups for survival probability:\n')
+disp(Z0)
+
+for i = 1:n0
+    for j = 1:nsample
+        nu0(i, j) = exp( [mu0(i,j), mu0(i,j).^2]*matpara(j, (2*q+1)+(1:ngammas))' );
+    end
+    for t = 1:len
+        t1 = t0(t);
+        tmp = 1 - sum(Ps.*normcdf(...
+            ( repmat( ((log(t1) - mu0(i,:))./sqrt(nu0(i,:)))', [1,N]) - Theta(:,1:N) )./sqrt(Theta(:,N+(1:N)))...
+            ), 2);
+        spm(t, i) = mean(tmp);  spl(t, i) = quantile(tmp, .025); spu(t, i) = quantile(tmp, .975);
+    end
+    
+    % Plot the true, empirical, and estimated survival probability
+    subplot(2,2,i); plot(t0, trueY(:,i), 'r-')
+    xlim([Z0(i,:)*betas+1, 60])
+    hold on,
+    for j = t0
+        plot(j, mean(V(~( sum((Z(:,1:p) - repmat(Z0(i,1:p), [n,1])).^2, 2) ))>=j), 'k.')
+    end
+    plot(t0, spm(:,i), 'b-')
+    plot(t0, spl(:,i), 'bREPLACE_WITH_DASH_DASH')
+    plot(t0, spu(:,i), 'bREPLACE_WITH_DASH_DASH')
+    hold off
+end
+
+% % save the figure
+% fac = .8;
+% set(gcf, 'PaperPosition', [0 0 4 4]/fac);
+% set(gcf, 'PaperSize', [4 4]/fac);
+% set(gca,'FontSize',12)
+% saveas(gcf, strcat('./','fig',num2str(id)), 'pdf')
+
+disp('Demo completed. For full results, need to increase tot for achieving reasonable mixing rates and convergence')
+
+##### SOURCE END #####
+--></body></html>
