@@ -12,8 +12,8 @@ main:
   - title: "Members"
     url: /members/    
 
-  - title: "Miscellaneous"
-    url: /portfolio/
+ # - title: "Miscellaneous"
+ #   url: /portfolio/
 
         
   #- title: "Blog Posts"
