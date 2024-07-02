@@ -169,7 +169,7 @@ and population stratification. Biometrics. <!--\[[research/mukherjee2007-biometr
 <li> Sinha, S., and Mukherjee, B. (2006). A score test for
 determining sample size in matched case-control studies with
 categorical exposure.  Biometrical Journal, 48, 35--53. <!--\[[research/sinha_biomj2006.pdf pdf]\]-->
-Here is the <a href="http://samiransinha.github.io/files/codes/rcode1.R">code</a>. 
+Here is the <a href="http://samiransinha.github.io/files/codes/samplesizecode.txt">R script</a>. 
 </li>
 <li> Sinha, S., Mukherjee, B., Ghosh, M., Mallick, B. K., Carroll, R. J.  (2005). Semiparametric Bayesian 
 analysis of matched case-control studies with missing exposure. 
