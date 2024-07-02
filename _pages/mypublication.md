@@ -64,7 +64,7 @@ This <a href="http://samiransinha.github.io/files/codes/SIM_icemelt_examples2019
 </li>
 <li> Zhang, Z., Sinha, S., Maiti, T., and Shipp, E. Bayesian variable selection in the AFT model with an application 
 to the SEER breast cancer data. Statistical Methods in Medical Research, 27, 971-990. <a href="http://samiransinha.github.io/files/research/draft_seerdata_Dec_2015_rev2_sent2pub.pdf">Article</a>, <a href="http://samiransinha.github.io/files/research/suppl.pdf">Supplementary materials</a>,  
-<a href="http://samiransinha.github.io/files/codes/html.zip"> Matlab code</a>, and related files  <a href="http://samiransinha.github.io/files/codes/example.html"> example.html</a>, <a href="http://samiransinha.github.io/files/codes/AFT_Bayes_LASSO.html"> AFT Bayes LASSO</a></li>
+<a href="http://samiransinha.github.io/files/codes/ZhangSMMR.zip"> Matlab code</a>, and related files  <a href="http://samiransinha.github.io/files/codes/example.html"> example.html</a>, <a href="http://samiransinha.github.io/files/codes/AFT_Bayes_LASSO.html"> AFT Bayes LASSO</a></li>
 This <a href="http://samiransinha.github.io/files/codes/zhen_August2019.html html">file</a> contains illustrative examples on how to use a number of variable selection techniques with the objects generated from the survival package, while the generalized F distribution is considered in 
 this <a href="http://samiransinha.github.io/files/codes/zhen_genf_August2019.html"> file</a>.
 </li>
