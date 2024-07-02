@@ -68,7 +68,7 @@ to the SEER breast cancer data. Statistical Methods in Medical Research, 27, 971
 This <a href="http://samiransinha.github.io/files/codes/zhen_August2019.html">file</a> contains illustrative examples on how to use a number of variable selection techniques with the objects generated from the survival package, while the generalized F distribution is considered in 
 this <a href="http://samiransinha.github.io/files/codes/zhen_genf_August2019.html">file</a>.
 </li>
-<li> Maiti, T., Sinha, S. and Zhong, P-S. (2016). Functional mixed effects model for small area estimation. Scandinavian Journal of Statistics, 43, 886-903. <a href="http://samiransinha.github.io/files/[research/sjos2016_Maiti.pdf">Article</a>, 
+<li> Maiti, T., Sinha, S. and Zhong, P-S. (2016). Functional mixed effects model for small area estimation. Scandinavian Journal of Statistics, 43, 886-903. <a href="http://samiransinha.github.io/files/research/sjos2016_Maiti.pdf">Article</a>, 
 <a href="http://samiransinha.github.io/files/research/sjos2016_Maiti_suppl.pdf">Supplementary materials</a>
 </li>
 <li> Sinha, S. and Ma, Y. Analysis of proportional odds models with censoring and errors-in-covariates. Journal of the American Statistical Association. 111, 1301–1312. 
