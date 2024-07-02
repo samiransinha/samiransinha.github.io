@@ -147,7 +147,7 @@ haplotype effects in matched case-control studies using unphased genotype
 data.  International Journal of Biostatistics, 4, Issue 1, Article 6. 
 <!--\[[research/sinha_ijb2008.pdf pdf]\]-->
 Here is the code <a href="http://samiransinha.github.io/files/codes/Readme.txt">Readme</a>,    
-<a href="http://samiransinha.github.io/files/codes/Hap.R">R script</a>, <a href="http://samiransinha.github.io/files/codes/new-hapdataanalysissub1.f">Fortran subroutines</a>.
+<a href="http://samiransinha.github.io/files/codes/Hap.txt">R script</a>, <a href="http://samiransinha.github.io/files/codes/new-hapdataanalysissub1.f">Fortran subroutines</a>.
 </li>
 <li> Sinha, S., Mukherjee, B., and Ghosh, M.
 (2007),  Modelling association among bivariate exposures in
