@@ -136,7 +136,7 @@ Here is the code: <a href="http://samiransinha.github.io/files/codes/semipara-me
 </li>
 <li> Sun, J., Sinha, S., Wang, S., and Maiti, T. Bias corrected inference for the conditional 
 logistic regression. Statistics in Medicine. <!--\[[research/Sun_SIM.pdf pdf]\] -->
-Here is the code for bias corrected estimator, <a href="http://samiransinha.github.io/files/codes/Bias-correction/readme.txt">Readme</a>, <a href="http://samiransinha.github.io/files/codes/Bias-correction/MDS.txt">R script</a>. 
+Here is the code for bias corrected estimator, <a href="http://samiransinha.github.io/files/codes/Bias_correction/readme.txt">Readme</a>, <a href="http://samiransinha.github.io/files/codes/Bias_correction/MDS.txt">R script</a>. 
 </li>
 <li> Sinha, S., and Wang, S. (2009). A new semiparametric procedure for matched case-control 
 studies with missing covariates.  Journal of Nonparametric Statistics. 
