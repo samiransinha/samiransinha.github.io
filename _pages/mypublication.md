@@ -31,7 +31,7 @@ Physical Review D. <a href="https://arxiv.org/abs/2307.13792">Article</a>.
 </li>
 <li> Hu, L., Mandal, S. and Sinha, S. A comparative study of two-sample tests for interval-censored data. Journal of Statistical Computation and Simulation. <a href="https://www.tandfonline.com/doi/full/10.1080/00949655.2021.1955884">Article</a> 
 </li>
-<li> Karmakar, M., Lai, P-C., Sinha, S., Glaser, S. and Chakraborty, S. Identification of miR-203a, mir-10a, and miR-194 as predictors for risk of lymphovascular invasion in head and neck cancers. <a href="https://doi.org/10.18632/oncotarget.28022">Article</a>
+<li> Karmakar, M., Lai, P-C., Sinha, S., Glaser, S. and Chakraborty, S. Identification of miR-203a, mir-10a, and miR-194 as predictors for risk of lymphovascular invasion in head and neck cancers. Oncotarget. <a href="https://doi.org/10.18632/oncotarget.28022">Article</a>
 </li>
 <li> Dutta, B., Lang, R.F., Liao, S., Sinha, S., Strigari, L. and Thompson, A. A global analysis strategy to resolve neutrino NSI degeneracies with scattering and oscillation data. Jouranl of High Energy Physics. <a href="https://arxiv.org/abs/2002.03066">Article</a>
 </li>
