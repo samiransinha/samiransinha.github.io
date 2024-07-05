@@ -12,8 +12,11 @@ redirect_from:
 
 **Graduate research assistant**
 =====
+<img src="http://samiransinha.github.io/images/students/Weiyi_Huang2024.jpg" align="left" width="160px" style="margin-right: 20px;"/>
+Howdy! I’m Weiyi Huang and currently a Biostatistics master student at Texas A&M University. I’ve been working as a research assistant under Dr. Sinha, conducting research on birth defects and biological clocks. This experience has enabled me to apply statistical methods to scientific research across health-related fields such as medicine, biology, and epidemiology, as well as to develop new tools for studying these areas. I’ll further pursue a Ph.D. degree in biostatistics to study advanced statistical methods for exploring and understanding the world.
+<br>
 
-
+<br clear="left"/>
 
 
 
