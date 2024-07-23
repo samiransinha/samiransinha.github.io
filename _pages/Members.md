@@ -19,7 +19,15 @@ Howdy! I’m Weiyi Huang and currently a Biostatistics master student at Texas A
 <br clear="left"/>
 
 
+**MS student**
+=====
+<img src="http://samiransinha.github.io/images/students/YutingJia2024.jpg" align="left" width="160px" style="margin-right: 20px;"/>
+Hello! I am Yuting Jia, currently a master’s student in Statistics at Texas A&M University. I hold a Bachelor of Mathematics in Statistics from Carleton University. My main focus is on applying statistical methods to healthcare data. I have skills in data analytics, visualization, and predictive modeling, with proficiency in R, Python, SAS, SQL, and Tableau.
 
+During my undergraduate studies, I worked on various projects involving healthcare data management and marketing analytics, developing and maintaining databases. Currently, under the research guidance of Dr. Sinha, I am further developing my expertise in healthcare data analysis. After completing my degree, I aspire to work in the healthcare and pharmaceutical industries, leveraging big data and robust statistical methods to improve patient outcomes and healthcare interventions.
+<br>
+
+<br clear="left"/>
 
 **Undergraduate research students**
 =====
