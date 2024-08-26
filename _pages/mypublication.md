@@ -11,6 +11,9 @@ redirect_from:
 
 **Peer reviewed journal publications**
 <ol reversed> 
+
+<li> Yi, Z., Strigari, L. E., Jin, L. and Sinha, S. Prospects for measuring the time variation of astrophysical neutrino sources at dark matter detectors. Physical Review D. 
+<a https://journals.aps.org/prd/abstract/10.1103/PhysRevD.110.043037 </a></li> 
 <li> Chattopadhyay, A., Hoh, D., Kramer, D. M., Maiti, T. and Sinha, S. CMPLE: Correlation modelling to decode Photosynthesis
 using the Minorize-Maximize algorithm.  Journal of Agricultural, Biological and Environmental Statistics. <a href="https://link.springer.com/article/10.1007/s13253-024-00627-9">Article</a>,  <a href="http://samiransinha.github.io/files/research/CMPLEsupple.pdf">Supplementary materials</a>, <a href="https://github.com/ChattoAbhijnan/CMPLE">R package</a></li> 
 <li> Yi, Z., Strigari, L. E., Jin, L. and Sinha, S. Detection of astrophysical neutrinos at prospective locations of dark matter detectors. 
