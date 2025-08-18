@@ -10,10 +10,6 @@ redirect_from:
 {% include base_path %}
 
 
-
-
-
-
 **Undergraduate research students**
 =====
 
