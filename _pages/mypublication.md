@@ -12,6 +12,10 @@ redirect_from:
 **Peer reviewed journal publications**
 <ol reversed> 
 
+<li> Gladwell, L. A., Packer, L., Karthik, J.,   Kwong, J.,  Hummel, R.,  Jia, Y., Sinha, S.,  Morris, T.,  Page, R.,  Choudhury, M. (2025). Environmental toxicants in the Hispanic community epigenetically contributing to preeclampsia. Cardiovascular Toxicology. <a href="https://doi.org/10.1007/s12012-025-10049-9">DOI </a> </li>
+<li>
+Wu, Y-A.,  Lidbury, J.A., Sinha, S., and Steiner, J. M. (2025). Randomized open-label clinical trial comparing prednisolone and cyclosporine with a non-randomized active control for treating presumed chronic pancreatitis in cats. Journal of Veterinary Internal Medicine. <a href="https://doi.org/10.1111/jvim.70163">Link </a></li> 
+<li> Betancourt, D., Shumate, C., Canfield, M. A., Ferdinand, A., Page, R., Morris, T., Ayres, S., and  Sinha, S. (2025). Assessing the impact of social factors on survival among infants born with transposition of the great arteries, tetralogy of fallot, and diaphragmatic hernia in Texas, 2011-2019. Maternal and Child Health Journal. <a href="https://doi.org/10.1007/s10995-025-04126-2"> Link </a> </li>
 <li> Yi, Z., Strigari, L. E., Jin, L. and Sinha, S. Prospects for measuring the time variation of astrophysical neutrino sources at dark matter detectors. Physical Review D. 
 <a href="https://journals.aps.org/prd/abstract/10.1103/PhysRevD.110.043037"> Article link</a></li> 
 <li> Chattopadhyay, A., Hoh, D., Kramer, D. M., Maiti, T. and Sinha, S. CMPLE: Correlation modelling to decode Photosynthesis
