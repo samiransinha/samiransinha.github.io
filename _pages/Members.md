@@ -10,12 +10,16 @@ redirect_from:
 {% include base_path %}
 
 
-**Undergraduate research students**
+**Collaborators**
 =====
 
-<img src="http://samiransinha.github.io/images/students/Wesley_picture2024.jpg" align="left" width="160px" style="margin-right: 20px;"/>
-Hi, I am Wesley Fletcher, a class of '26 Aggie from Houston, Texas. I decided to pursue statistics following taking an introductory course in high school. Since arriving at A&M, I have served as a teacher's assistant to Dr. Kyle Thicke within the Department of Mathematics and am a textbook editor under Dr. Phillip Yasskin. I am currently working as an Undergraduate Student Researcher under Dr. Sinha and plan to pursue a Master's Degree in Statistics at A&M.
+Wesley Fletcher (Undergraduate research student at TAMU)
 <br>
+
+Weiyi Huang (PhD student at the University of Houston)
+<br>
+
+
 
 
 <br clear="left"/>
