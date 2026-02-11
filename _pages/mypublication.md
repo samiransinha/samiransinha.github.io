@@ -12,6 +12,9 @@ redirect_from:
 **Peer reviewed journal publications**
 <ol reversed> 
 
+<li>Kollipara, H., Maiti, T., Chakraborty, S., and Sinha, S. Benchmarking sparse variable selection methods for genomic data analyses. Statistics in Medicine. <a href="http://dx.doi.org/10.1002/sim.70428"> DOI</a> </li> 
+<li> Huang, W., Harrell, M. B.,  Page, R. L.,  Morris, T., Ayres, S.,  Choudhury, M.,   Betancourt, D. and  Sinha, S. (2025). Nicotine consumption and folate insufficiency in pregnancy: a population-based cross-sectional study. The Journal of
+Maternal-Fetal & Neonatal Medicine, 38:1, 2577231, <a href="10.1080/14767058.2025.2577231">DOI</a> </li>
 <li> Gladwell, L. A., Packer, L., Karthik, J., Kwong, J.,  Hummel, R.,  Jia, Y., Sinha, S.,  Morris, T.,  Page, R.,  Choudhury, M. (2025). Environmental toxicants in the Hispanic community epigenetically contributing to preeclampsia. Cardiovascular Toxicology. <a href="https://doi.org/10.1007/s12012-025-10049-9">DOI </a> </li>
 <li>
 Wu, Y-A.,  Lidbury, J.A., Sinha, S., and Steiner, J. M. (2025). Randomized open-label clinical trial comparing prednisolone and cyclosporine with a non-randomized active control for treating presumed chronic pancreatitis in cats. Journal of Veterinary Internal Medicine. <a href="https://doi.org/10.1111/jvim.70163">Link </a></li> 
