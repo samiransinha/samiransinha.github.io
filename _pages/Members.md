@@ -12,14 +12,8 @@ redirect_from:
 **Current Collaborators**
 =====
 
-Sanjukta Chakraborty (Texas A&M University)
-<br>
-
 Abhijnan Chattopadhyay (Houston Methodist)
 <br> 
-
-Mahua Choudhury (Texas A&M University)
-<br>
 
 Mai Dao (Wichita State University)
 <br>
