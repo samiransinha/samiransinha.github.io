@@ -16,6 +16,7 @@ redirect_from:
 <li>Fletcher, W. and Sinha, S. (2026). Benchmark of biomarker identification and prognostic modeling methods on diverse censored data. <a href="https://www.biorxiv.org/content/10.64898/2026.03.29.715113v1">MS ID#: BIORXIV/2026/715113</a>, 
 <a href="https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0351429">PLOS One</a>
 <br>  
+AI generated 5 minutes podcast of this work  
 <audio controls>
   <source src="https://samiransinha.github.io/files/research/Pinpointing_Cancer_Biomarkers_in_Noisy_Data.m4a" type="audio/mp4">
   Your browser does not support the audio element.
@@ -23,7 +24,14 @@ redirect_from:
 </li> 
 <li>Kollipara, H., Maiti, T., Chakraborty, S., and Sinha, S. (2026). Benchmarking sparse variable selection methods for genomic data analyses. Statistics in Medicine. <a href="http://dx.doi.org/10.1002/sim.70428"> DOI</a> </li> 
 <li> Huang, W., Harrell, M. B.,  Page, R. L.,  Morris, T., Ayres, S.,  Choudhury, M.,   Betancourt, D. and  Sinha, S. (2025). Nicotine consumption and folate insufficiency in pregnancy: a population-based cross-sectional study. The Journal of
-Maternal-Fetal & Neonatal Medicine, 38:1, 2577231, <a href="https://www.tandfonline.com/doi/full/10.1080/14767058.2025.2577231">DOI</a> </li>
+Maternal-Fetal & Neonatal Medicine, 38:1, 2577231, <a href="https://www.tandfonline.com/doi/full/10.1080/14767058.2025.2577231">DOI</a> 
+<br>  
+AI generated 5 minutes podcast of this work  
+<audio controls>
+  <source src="https://samiransinha.github.io/files/research/Nicotine_Dissolves_Vital_Prenatal_Folate.m4a" type="audio/mp4">
+  Your browser does not support the audio element.
+</audio>
+</li>
 <li> Gladwell, L. A., Packer, L., Karthik, J., Kwong, J.,  Hummel, R.,  Jia, Y., Sinha, S.,  Morris, T.,  Page, R.,  Choudhury, M. (2025). Environmental toxicants in the Hispanic community epigenetically contributing to preeclampsia. Cardiovascular Toxicology. <a href="https://doi.org/10.1007/s12012-025-10049-9">DOI </a> </li>
 <li>
 Wu, Y-A.,  Lidbury, J.A., Sinha, S., and Steiner, J. M. (2025). Randomized open-label clinical trial comparing prednisolone and cyclosporine with a non-randomized active control for treating presumed chronic pancreatitis in cats. Journal of Veterinary Internal Medicine. <a href="https://doi.org/10.1111/jvim.70163">Link </a></li> 
