@@ -15,8 +15,9 @@ redirect_from:
 <li>Bisset, I. A., Dutta, B., Kim, D., Sinha, S., and Walker, J. W. (2026). Analytical and machine learning methods for model discernment at CEνNS experiments. <a href="https://arxiv.org/abs/2604.21869"> arxiv</a></li>
 <li>Fletcher, W. and Sinha, S. (2026). Benchmark of biomarker identification and prognostic modeling methods on diverse censored data. <a href="https://www.biorxiv.org/content/10.64898/2026.03.29.715113v1">MS ID#: BIORXIV/2026/715113</a>, 
 <a href="https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0351429">PLOS One</a>
+<br>  
 <audio controls>
-  <source src="/samiransinha.github.io/files/research/Pinpointing_Cancer_Biomarkers_in_Noisy_Data.m4a" type="audio/mp4">
+  <source src="https://samiransinha.github.io/files/research/Pinpointing_Cancer_Biomarkers_in_Noisy_Data.m4a" type="audio/mp4">
   Your browser does not support the audio element.
 </audio>
 </li> 
