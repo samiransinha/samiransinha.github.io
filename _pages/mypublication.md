@@ -16,11 +16,13 @@ redirect_from:
 <li>Fletcher, W. and Sinha, S. (2026). Benchmark of biomarker identification and prognostic modeling methods on diverse censored data. <a href="https://www.biorxiv.org/content/10.64898/2026.03.29.715113v1">MS ID#: BIORXIV/2026/715113</a>, 
 <a href="https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0351429">PLOS One</a>
 <br>  
-AI generated 5 minutes podcast of this work  
-<audio controls>
-  <source src="https://samiransinha.github.io/files/research/Pinpointing_Cancer_Biomarkers_in_Noisy_Data.m4a" type="audio/mp4">
-  Your browser does not support the audio element.
-</audio>
+<div style="display: flex; align-items: center; gap: 10px;">
+  <span>AI-generated 5-minute podcast of this work:</span>
+  <audio controls style="height: 30px;">
+    <source src="https://samiransinha.github.io/files/research/Pinpointing_Cancer_Biomarkers_in_Noisy_Data.m4a" type="audio/mp4">
+    Your browser does not support the audio element.
+  </audio>
+</div>
 </li> 
 <li>Kollipara, H., Maiti, T., Chakraborty, S., and Sinha, S. (2026). Benchmarking sparse variable selection methods for genomic data analyses. Statistics in Medicine. <a href="http://dx.doi.org/10.1002/sim.70428"> DOI</a> </li> 
 <li> Huang, W., Harrell, M. B.,  Page, R. L.,  Morris, T., Ayres, S.,  Choudhury, M.,   Betancourt, D. and  Sinha, S. (2025). Nicotine consumption and folate insufficiency in pregnancy: a population-based cross-sectional study. The Journal of
