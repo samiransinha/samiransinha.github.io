@@ -24,7 +24,16 @@ redirect_from:
   </audio>
 </div>
 </li> 
-<li>Kollipara, H., Maiti, T., Chakraborty, S., and Sinha, S. (2026). Benchmarking sparse variable selection methods for genomic data analyses. Statistics in Medicine. <a href="http://dx.doi.org/10.1002/sim.70428"> DOI</a> </li> 
+<li>Kollipara, H., Maiti, T., Chakraborty, S., and Sinha, S. (2026). Benchmarking sparse variable selection methods for genomic data analyses. Statistics in Medicine. <a href="http://dx.doi.org/10.1002/sim.70428"> DOI</a> 
+<br>  
+<div style="display: flex; align-items: center; gap: 10px;">
+  <span>AI-generated 5-minute podcast of this work:</span>
+  <audio controls style="height: 30px;">
+    <source src="https://samiransinha.github.io/files/research/Statistical_consensus_identifies_gendered_kidney_cancer_drivers.m4a" type="audio/mp4">
+    Your browser does not support the audio element.
+  </audio>
+</div>
+</li> 
 <li> Huang, W., Harrell, M. B.,  Page, R. L.,  Morris, T., Ayres, S.,  Choudhury, M.,   Betancourt, D. and  Sinha, S. (2025). Nicotine consumption and folate insufficiency in pregnancy: a population-based cross-sectional study. The Journal of
 Maternal-Fetal & Neonatal Medicine, 38:1, 2577231, <a href="https://www.tandfonline.com/doi/full/10.1080/14767058.2025.2577231">DOI</a> 
 <br>  
