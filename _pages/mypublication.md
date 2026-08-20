@@ -12,7 +12,16 @@ redirect_from:
 **Peer reviewed journal publications**
 <ol reversed> 
 <li>Huang, W., Menet, J. S. and Sinha, S. (2026). CARhy: Comprehensive Analyses of Circadian Rhythms in Transcriptomic Experiments with Multiple Conditions. <a href="https://arxiv.org/abs/2604.26765">arxiv</a>, <a href=" https://github.com/DrHuang123/Comprehensive-Analyses-of-Circadian-Rhythms-CARhy"> R package on GitHub </a> </li> 
-<li>Bisset, I. A., Dutta, B., Kim, D., Sinha, S., and Walker, J. W. (2026). Analytical and machine learning methods for model discernment at CEνNS experiments. <a href="https://arxiv.org/abs/2604.21869"> arxiv</a></li>
+<li>Bisset, I. A., Dutta, B., Kim, D., Sinha, S., and Walker, J. W. (2026). Analytical and machine learning methods for model discernment at CEνNS experiments. <a href="https://arxiv.org/abs/2604.21869"> arxiv</a>
+<br>  
+<div style="display: flex; align-items: center; gap: 10px;">
+  <span>AI-generated 5-minute podcast of this work:</span>
+  <audio controls style="height: 30px;">
+    <source src="https://samiransinha.github.io/files/research/Identifying_neutrinos_in_the_geometry_of_noise.m4a" type="audio/mp4">
+    Your browser does not support the audio element.
+  </audio>
+</div>
+</li>
 <li>Fletcher, W. and Sinha, S. (2026). Benchmark of biomarker identification and prognostic modeling methods on diverse censored data. <a href="https://www.biorxiv.org/content/10.64898/2026.03.29.715113v1">MS ID#: BIORXIV/2026/715113</a>, 
 <a href="https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0351429">PLOS One</a>
 <br>  
